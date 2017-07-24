@@ -4,6 +4,7 @@
 // +----------------------------------------------------------------------
 // | Copyright (c) 2015 http://www.baijiacms.com All rights reserved.
 // +----------------------------------------------------------------------
+// | Author: °Ù¼ÒÍþÐÅ <QQ:2752555327> <http://www.baijiacms.com>
 // +----------------------------------------------------------------------
  $sortname = $_GP['sortname']?$_GP['sortname']:'ordermoney';
  if(!empty($_GP['start_time']) && !empty($_GP['end_time']))
