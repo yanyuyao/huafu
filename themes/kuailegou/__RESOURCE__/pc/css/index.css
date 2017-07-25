@@ -193,15 +193,15 @@ ul li{
     background: #C81623;
     color: #fff;
     height: 27px;
-    left: 0;
+    left: 5px;
     line-height: 27px;
     position: absolute;
-    top: 0;
+    top: 5px;
     width: 61px;
     font-size: 12px;
     border-radius: 5px;
     text-align: center;
-    opacity: 0.3;
+    /*opacity: 0.3;*/
     z-index: 9;
 }
 .groDiv li .s {
