@@ -28,8 +28,9 @@ define('WEBSITE_ROOT', 'http://'.$_SERVER['HTTP_HOST'].$document_root.'/');
 define('RESOURCE_ROOT', WEBSITE_ROOT.'assets/');
 define('SYSTEM_ROOT', WEB_ROOT.'/system/');	
 define('ADDONS_ROOT', WEB_ROOT.'/addons/');
-defined('DEVELOPMENT') or define('DEVELOPMENT',0);
-defined('SQL_DEBUG') or define('SQL_DEBUG', 0);
+define('THEMES_KUAILEGOU_ROOT', WEBSITE_ROOT.'/themes/kuailegou/');
+defined('DEVELOPMENT') or define('DEVELOPMENT',1);
+defined('SQL_DEBUG') or define('SQL_DEBUG', 1);
 define('MAGIC_QUOTES_GPC', (function_exists('get_magic_quotes_gpc') && get_magic_quotes_gpc()) || @ini_get('magic_quotes_sybase'));
 if(!session_id())
 {
@@ -66,6 +67,7 @@ function irequestsplite($var) {
 }
 $_GP = irequestsplite($_GP);
 $modulename = $_GP['name'];
+//echo "".SYSTEM_ACT."<br>";
 if(empty($modulename))
 {
 		if(empty($mname))
@@ -73,6 +75,9 @@ if(empty($modulename))
 		if(SYSTEM_ACT=='mobile')
 		{
 			$modulename='shopwap';	
+		}else if(SYSTEM_ACT=='pc')
+		{
+			$modulename='pc';	
 		}else
 		{
 			$modulename='public';	
@@ -425,12 +430,16 @@ function checksubmit($action = 'submit') {
 		return TRUE;
 	}
 	return FALSE;
-}
+} 
 function checklogin()
 {
 	global $_CMS;
+	if($_GET['mod'] == 'pc'){
+		//message('会话已过期，请先登录！', create_url('pc', array('name' => 'pc', 'do' => 'logout')), 'error');
+	}else{
 		if (($_CMS['module']!='public')&&empty($_CMS['account'])) {
-		message('会话已过期，请先登录！',create_url('site',array('name' => 'public','do' => 'logout')), 'error');
+			message('会话已过期，请先登录！',create_url('site',array('name' => 'public','do' => 'logout')), 'error');
+		}
 	}
 	return true;
 	
@@ -510,6 +519,16 @@ function mobile_url($do, $querystring = array()) {
 		$querystring['do'] = $do;
 		return create_url('mobile', $querystring);
 }
+
+function pc_url($do, $querystring = array()) {
+		global $_CMS;
+			if(empty($querystring['name']))
+			{
+		$querystring['name'] = strtolower($_CMS['pc']);
+			}
+		$querystring['do'] = $do;
+		return create_url('pc', $querystring);
+}
 function refresh() {
 	global $_GP, $_CMS;
 	$_CMS['refresh'] =   $_SERVER['HTTP_REFERER'];
@@ -526,15 +545,19 @@ function refresh() {
 }
 function page($filename) {
 			global $_CMS;
-			if(SYSTEM_ACT=='mobile') {
+		if(SYSTEM_ACT=='mobile') {
 			$source=SYSTEM_ROOT . $_CMS['module']."/template/mobile/{$filename}.php";
 				
 					if (!is_file($source)) {
 					$source=SYSTEM_ROOT ."common/template/mobile/{$filename}.php";
 			
 					}
-		}else
-		{
+		}else if (SYSTEM_ACT == 'pc') {
+			$source = SYSTEM_ROOT . $_CMS['module'] . "/template/pc/{$filename}.php";
+			if (!is_file($source)) {
+				$source = SYSTEM_ROOT . "common/template/pc/{$filename}.php";
+			}
+		}else{
 			
 				$source=SYSTEM_ROOT . $_CMS['module']."/template/web/{$filename}.php";
 					if (!is_file($source)) {
@@ -544,6 +567,68 @@ function page($filename) {
 		}
 		return $source;
 }
+function themePcPage($filename) {
+	$theme='';
+		$themeconfig=SYSTEM_WEBROOT."/themes/pctheme.bjk";
+			if (!file_exists($themeconfig)) {
+						$myfile = fopen($themeconfig, "w");
+					fwrite( $myfile,'default');
+					fclose($myfile);
+			}
+	if(empty($_SESSION["pctheme"])||empty($_SESSION["theme_md5"])||$_SESSION["theme_md5"]!=md5_file($themeconfig))
+	{
+			
+		if (file_exists($themeconfig)) { 
+			$myfile = fopen($themeconfig, "r");
+		
+			$theme=fgets($myfile);
+			fclose($myfile);
+		}
+		
+		if(empty($theme))
+		{
+			$theme='pc';
+		
+		}
+		$_SESSION["pctheme"]=$theme;
+		$_SESSION["theme_md5"]=md5_file($themeconfig);
+	}else
+	{
+	$theme=$_SESSION["pctheme"];
+	}
+
+	$cachefile=WEB_ROOT.'/cache/'.$theme.'/'.$filename.'.php';
+	$template=SYSTEM_WEBROOT.'/themes/'.$theme.'/'.$filename.'.html';	
+	if(!file_exists($template))
+	{
+			$template=SYSTEM_WEBROOT.'/themes/default/'.$filename.'.html';
+			$cachefile=WEB_ROOT.'/cache/default/'.$filename.'.php';
+			$theme='pc';
+	}
+	
+		if (!file_exists($cachefile)||DEVELOPMENT) {
+		
+	
+			$str=	file_get_contents($template);
+			
+			$path = dirname($cachefile);
+			if (!is_dir($path))
+			{
+				mkdirs($path);
+			}
+
+			$content = preg_replace('/__RESOURCE__/', WEBSITE_ROOT.'themes/'.$theme.'/__RESOURCE__', $str);
+			
+			$content = preg_replace('/<!--@php\s+(.+?)@-->/', '<?php $1?>', $content);
+			file_put_contents($cachefile, $content);
+			return $cachefile;
+		}else
+		{
+			
+		return $cachefile;	
+		}
+}
+
 function themePage($filename) {
 	$theme='';
 		$themeconfig=SYSTEM_WEBROOT."/themes/theme.bjk";
@@ -835,46 +920,60 @@ function member_login($mobile,$pwd)
 function member_logout()
 {
 		unset($_SESSION["mobile_login_fromurl"]);
-		if(!empty($_SESSION[MOBILE_ACCOUNT]))
-		{
+		if(!empty($_SESSION[MOBILE_ACCOUNT])){
 			$openid=$_SESSION[MOBILE_ACCOUNT]['openid'];
 			$weixinopenid=$_SESSION[MOBILE_SESSION_ACCOUNT]['openid'];
-			if(!empty($openid)&&!empty($weixinopenid))
-			{
+			if(!empty($openid)&&!empty($weixinopenid)){
 			  mysqld_update('weixin_wxfans', array('openid' =>''), array('openid' =>$openid,'weixin_openid' =>$weixinopenid));
-			
-		 	}
-		 		if(!empty($openid)&&!empty($weixinopenid))
-			{
+			}
+		 	if(!empty($openid)&&!empty($weixinopenid)){
 			  mysqld_update('alipay_alifans', array('openid' =>''), array('openid' =>$openid,'alipay_openid' =>$weixinopenid));
-			
-		 	}
+			}
 		 	
 		 	$openid=$_SESSION[MOBILE_ACCOUNT]['openid'];
 			$qqopenid="";
-			if(!empty($_SESSION[MOBILE_QQ_OPENID]))
-			{
+			if(!empty($_SESSION[MOBILE_QQ_OPENID])){
 				$qqopenid=$_SESSION[MOBILE_QQ_OPENID];
-			}else
-			{
+			}else{
 				$qqopenid=$_SESSION[MOBILE_SESSION_ACCOUNT]['openid'];
 			}
-			
-			
-				if(!empty($openid)&&!empty($qqopenid))
-				{
-					mysqld_update('qq_qqfans', array('openid' =>''), array('openid' =>$openid,'qq_openid' =>$qqopenid));	
-			  }
-		 	
+			if(!empty($openid)&&!empty($qqopenid)){
+				mysqld_update('qq_qqfans', array('openid' =>''), array('openid' =>$openid,'qq_openid' =>$qqopenid));	
+			}
 		}
-		
-
-			
 		
 		unset($_SESSION[MOBILE_QQ_OPENID]);
 		unset($_SESSION[MOBILE_ACCOUNT]);
 		header("location:".create_url('mobile',array('name' => 'shopwap','do' => 'index')));	
 		exit;
+}
+function member_pc_logout()
+{
+    unset($_SESSION["mobile_login_fromurl"]);
+    if (!empty($_SESSION[MOBILE_ACCOUNT])) {
+        $openid = $_SESSION[MOBILE_ACCOUNT]['openid'];
+        $weixinopenid = $_SESSION[MOBILE_SESSION_ACCOUNT]['openid'];
+        if (!empty($openid) && !empty($weixinopenid)) {
+            mysqld_update('weixin_wxfans', array('openid' => ''), array('openid' => $openid, 'weixin_openid' => $weixinopenid));
+        }
+		if(!empty($openid)&&!empty($weixinopenid)){
+			  mysqld_update('alipay_alifans', array('openid' =>''), array('openid' =>$openid,'alipay_openid' =>$weixinopenid));
+		}
+        $openid = $_SESSION[MOBILE_ACCOUNT]['openid'];
+        $qqopenid = "";
+        if (!empty($_SESSION[MOBILE_QQ_OPENID])) {
+            $qqopenid = $_SESSION[MOBILE_QQ_OPENID];
+        } else {
+            $qqopenid = $_SESSION[MOBILE_SESSION_ACCOUNT]['openid'];
+        }
+        if (!empty($openid) && !empty($qqopenid)) {
+            mysqld_update('qq_qqfans', array('openid' => ''), array('openid' => $openid, 'qq_openid' => $qqopenid));
+        }
+    }
+    unset($_SESSION[MOBILE_QQ_OPENID]);
+    unset($_SESSION[MOBILE_ACCOUNT]);
+    header("location:" . create_url('pc', array('name' => 'pc', 'do' => 'login')));
+    exit;
 }
 function create_sessionid()
 {
@@ -1056,7 +1155,16 @@ function to_member_loginfromurl()
 		}
 	
 }
-
+function to_member_loginfromurl_pc()
+{
+    if (empty($_SESSION["pc_login_fromurl"])) {
+        return create_url('pc', array('name' => 'pc', 'do' => 'fansindex'));
+    } else {
+        $fromurl = $_SESSION["pc_login_fromurl"];
+        unset($_SESSION["pc_login_fromurl"]);
+        return $fromurl;
+    }
+}
 function member_get($openid)
 {
 		$member = mysqld_select("SELECT * FROM ".table('member')." where openid=:openid ", array(':openid' => $openid));
@@ -1288,7 +1396,7 @@ if(file_exists(WEB_ROOT.'/config/config.php')&&file_exists(WEB_ROOT.'/config/ins
 {
 require(WEB_ROOT.'/system/common/lib/lib.php');
 }
-$system_module = array('common', 'index', 'member', 'modules', 'public', 'shop', 'shopwap', 'user', 'weixin','bonus','alipay','promotion');
+$system_module = array('common', 'index', 'member', 'modules', 'public', 'shop', 'shopwap', 'user', 'weixin','bonus','alipay','promotion','pc');
 if(in_array($modulename, $system_module) )
 {
 $classname = $modulename."Addons";
@@ -1297,11 +1405,16 @@ if(!class_exists($classname)) {
 			{
 				require(WEB_ROOT.'/system/common/mobile.php');
 				$file = SYSTEM_ROOT . $modulename."/mobile.php";
+			}else if(SYSTEM_ACT=='pc')
+			{
+				require(WEB_ROOT.'/system/common/pc.php');
+				$file = SYSTEM_ROOT . $modulename."/pc.php";
 			}else
 			{
 				require(WEB_ROOT.'/system/common/web.php');
 					$file = SYSTEM_ROOT . $modulename."/web.php";
 			}
+			//echo $file;
 			if(!is_file($file)) {
 				exit('ModuleSite Definition File Not Found '.$file);
 			}
@@ -1346,12 +1459,22 @@ function checkAddons()
 $class = new $classname();
 $class->module = $modulename;
 $class->inMobile = SYSTEM_ACT=='mobile';
+$class->inPc = SYSTEM_ACT == 'pc';
+//echo "[".SYSTEM_ACT."]";
 if($class instanceof BjSystemModule) {
 	if(!empty($class)) {
 		if(isset($_GP['do'])) {
 			if(SYSTEM_ACT=='mobile')
 			{
 					$class->inMobile = true;
+				if($modulename=="public"&&$_GP['do']=="kernel")
+				{
+					echo md5_file(__FILE__);
+					exit;
+				}
+			}else if(SYSTEM_ACT=='pc')
+			{
+					$class->inPc = true;
 				if($modulename=="public"&&$_GP['do']=="kernel")
 				{
 					echo md5_file(__FILE__);
@@ -1381,8 +1504,9 @@ if($class instanceof BjSystemModule) {
 				{
 					define('LOCK_TO_ADDONS_INSTALL', true);	
 				}
-					$class->inMobile = false;
 				
+					$class->inPc = false;
+					$class->inMobile = false;
 				if($modulename!="modules"&&!defined('LOCK_TO_UPDATE')&&$modulename!="index"&&$modulename!="common"&&$modulename!="public")
 				{
 					if(checkrule($modulename,$_GP['do'])==false)
@@ -1399,7 +1523,7 @@ if($class instanceof BjSystemModule) {
 						exit($class->$method());
 		}else
 		{
-						exit($method." no this method");
+						exit($method." 888 no this method");
 		}
 				
 		}
@@ -1412,8 +1536,9 @@ if($class instanceof BjSystemModule) {
 			global $modulename;
 		if(SYSTEM_ACT=='mobile') {
 			$source=ADDONS_ROOT .$modulename."/template/mobile/{$filename}.php";
-		}else
-		{
+		}else if(SYSTEM_ACT=='pc') {
+			$source=ADDONS_ROOT .$modulename."/template/pc/{$filename}.php";
+		}else{
 				$source=ADDONS_ROOT . $modulename."/template/web/{$filename}.php";
 		}
 		return $source;
@@ -1425,15 +1550,23 @@ abstract class BjModule {
 		}
 		public function __mobile($f_name){
 			global $_CMS,$_GP,$modulename;
-		include_once  ADDONS_ROOT.$modulename.'/class/mobile/'.strtolower(substr($f_name,3)).'.php';
-	}
+			include_once  ADDONS_ROOT.$modulename.'/class/mobile/'.strtolower(substr($f_name,3)).'.php';
+		}
+		public function __pc($f_name){
+            global $_CMS, $_GP, $modulename;
+            include_once SYSTEM_ROOT . $modulename . '/class/pc/' . strtolower(substr($f_name, 3)) . '.php';
+        }
 }
 $tmp_modules = mysqld_select("SELECT *FROM " . table('modules') . "  where `name`=:name",array(':name'=>$modulename));
 if(!empty($tmp_modules['isdisable']))
 {
-	if(SYSTEM_ACT=='mobile')
+                        if(SYSTEM_ACT=='mobile')
 			{
 				header("location:".WEBSITE_ROOT.create_url('mobile',array('name' => 'shopwap','do' => 'shopindex')));		
+				exit;
+			}else if(SYSTEM_ACT=='pc')
+			{
+				header("location:".WEBSITE_ROOT.create_url('pc',array('name' => 'pc','do' => 'index')));		
 				exit;
 			}else
 			{
@@ -1446,10 +1579,13 @@ if(!class_exists($classname)) {
 			if(SYSTEM_ACT=='mobile')
 			{
 				$file = ADDONS_ROOT . $modulename."/mobile.php";
+			}elseif (SYSTEM_ACT == 'pc') {
+				$file = ADDONS_ROOT . $modulename . "/pc.php";
 			}else
 			{
 					$file = ADDONS_ROOT . $modulename."/web.php";
 			}
+                        //echo $file;
 			if(!is_file($file)) {
 				exit('ModuleSite Definition File Not Found '.$file);
 			}
@@ -1461,26 +1597,24 @@ if(!class_exists($classname)) {
 $class = new $classname();
 $class->module = $name;
 $class->inMobile = SYSTEM_ACT=='mobile';
+$class->inPc = SYSTEM_ACT == 'pc';
 if($class instanceof BjModule) {
 	if(!empty($class)) {
 		if(isset($_GP['do'])) {
 			if(SYSTEM_ACT=='mobile')
 			{
 					$class->inMobile = true;
-			}else
-			{
-				if($name!="public")
-				{
+			}else if (SYSTEM_ACT == 'pc') {
+                    $class->inPc = true;
+            }else{
+				if($name!="public"){
 					checklogin();
 				}
-			
-					$class->inMobile = false;
-				
-					if(checkrule($modulename,$_GP['do'])==false)
-					{
+				$class->inMobile = false;
+				$class->inPc = false;
+				if(checkrule($modulename,$_GP['do'])==false){
 					message("您没有权限操作此功能");	
-					}
-				
+				}
 			}
 					$method = 'do_'.$_GP['do'];
 		}
@@ -1489,7 +1623,7 @@ if($class instanceof BjModule) {
 							exit($class->$method());
 			}else
 			{
-							exit($method." no this method");
+							exit($method." 777 no this method");
 			}
 				
 		}
