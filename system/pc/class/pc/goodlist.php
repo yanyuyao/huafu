@@ -1,5 +1,5 @@
 <?php
-				
+       
         $pindex = max(1, intval($_GP["page"]));
         $psize = 10;
         $condition = '';
@@ -48,7 +48,7 @@
             $sortb22 = "desc";
         }
 
-        $sorturl = mobile_url('goodlist', array("keyword" => $_GP['keyword'], "pcate" => $_GP['pcate'], "ccate" => $_GP['ccate']));
+        $sorturl = pc_url('goodlist', array("keyword" => $_GP['keyword'], "pcate" => $_GP['pcate'], "ccate" => $_GP['ccate']));
         if (!empty($_GP['isnew'])) {
             $condition .= " AND isnew = 1";
             $sorturl.="&isnew=1";
@@ -69,8 +69,7 @@
 
         $children = array();
 
-
-
+        
         $category = mysqld_selectall("SELECT * FROM " . table('shop_category') . " WHERE deleted=0 and enabled=1 ORDER BY parentid ASC, displayorder DESC", array(), 'id');
         foreach ($category as $index => $row) {
             if (!empty($row['parentid'])) {

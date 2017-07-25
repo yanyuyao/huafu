@@ -52,7 +52,7 @@
 		    <div class="full_sc">
 	    	    <div class="w1200 header_conter">
 	    		    <div class="h_c_logo">
-	    			    <a href="index.html">
+                                <a href="<?php echo pc_url('shopindex');?>">
 	    				    <img src="<?php echo WEBSITE_ROOT;?>/attachment/<?php echo $cfg['shop_logo']; ?>" style="width:80px;"/>
 	    			    </a>
 	    		    </div>
@@ -66,9 +66,9 @@
 	    			    		<input type="submit" class="btn_search" value="搜索"/>
 	    			    	</form>-->
                                                    <form class="" action="index.php" id="searchForm" name="searchForm">
-                                                            <input type="hidden" name="mod" value="mobile" />
+                                                            <input type="hidden" name="mod" value="pc" />
                                                             <input type="hidden" name="do" value="goodlist" />
-                                                            <input type="hidden" name="name" value="shopwap" />
+                                                            <input type="hidden" name="name" value="pc" />
                                                             <input name="keyword"  style="color: rgb(102, 102, 102);height:auto;" id="search_word" class="text_search" placeholder="请输入商品名进行搜索！" ptag="37080.5.2" type="search"  AUTOCOMPLETE="off"/>
                                                             <div class="">
                                                                 <a href="javascript:;"  id="submit" class="btn_search" style="text-align: center;" >搜索</a>
@@ -78,34 +78,10 @@
 	    			    <div class="search_key">
 	    			    	<ul>
 	    			    		<li>
-	    			    			<a href="">太阳镜</a>
+                                                    <a href="<?php echo pc_url('goodlist',array('keyword'=>'智能锁'));?>">智能锁</a>
 	    			    		</li>
 	    			    		<li>
-	    			    			<a href="">蕉下</a>
-	    			    		</li>
-	    			    		<li>
-	    			    			<a href="">果蔬脆片</a>
-	    			    		</li>
-	    			    		<li>
-	    			    			<a href="">德亚酸牛奶</a>
-	    			    		</li>
-	    			    		<li>
-	    			    			<a href="">蚕丝面膜</a>
-	    			    		</li>
-	    			    		<li>
-	    			    			<a href="">山地车</a>
-	    			    		</li>
-	    			    		<li>
-	    			    			<a href="">BB霜</a>
-	    			    		</li>
-	    			    		<li>
-	    			    			<a href="">乳胶枕</a>
-	    			    		</li>
-	    			    		<li>
-	    			    			<a href="">蝙蝠侠系列石英表</a>
-	    			    		</li>
-	    			    		<li>
-	    			    			<a href="">拍立得</a>
+                                                    <a href="<?php echo pc_url('goodlist',array('keyword'=>'保湿机'));?>">保湿机</a>
 	    			    		</li>
 	    			    	</ul>
 	    			    </div>
