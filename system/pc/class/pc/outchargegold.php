@@ -5,7 +5,7 @@
        
       if(empty( $member['outgoldinfo']))
        {
-       message('您的资料不完善，请提现相关账户资料。',mobile_url('member'),'error');
+       message('您的资料不完善，请提现相关账户资料。',pc_url('member'),'error');
        }
        	$op = $_GP['op']?$_GP['op']:'display';
        	if($op=='display')

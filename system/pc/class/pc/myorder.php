@@ -7,12 +7,12 @@
        	   $orderid = intval($_GP['orderid']);
             $item = mysqld_select("SELECT * FROM " . table('shop_order') . " WHERE id = :id AND openid = :openid", array(':id' => $orderid, ':openid' => $openid )); 	
 	         	if (empty($item)) {
-                message('抱歉，您的订单不存在或是已经被取消！', mobile_url('myorder'), 'error');
+                message('抱歉，您的订单不存在或是已经被取消！', pc_url('myorder'), 'error');
             }
 	         	if(($item['paytype']==3&&$item['status']==1)||$item['status']==0)
 	         	{
          		mysqld_update('shop_order', array('status' => -1,'updatetime'=>time()), array('id' => $orderid, 'openid' => $openid ));
- 						message('订单已关闭！', mobile_url('myorder'), 'success');
+ 						message('订单已关闭！', pc_url('myorder'), 'success');
            
          		}
          			if($item['status']==2)
@@ -29,13 +29,13 @@
              $dispatch = mysqld_select("select id,dispatchname,sendtype from " . table('shop_dispatch') . " where id=:id limit 1", array(":id" => $item['dispatch']));
        
             if (empty($item)) {
-                message('抱歉，您的订单不存在或是已经被取消！', mobile_url('myorder'), 'error');
+                message('抱歉，您的订单不存在或是已经被取消！', pc_url('myorder'), 'error');
             }
                 $opname="退货";
               if (checksubmit("submit")) {
             mysqld_update('shop_order', array('status' => -4,'isrest'=>1,'rsreson' => $_GP['rsreson']), array('id' => $orderid, 'openid' => $openid ));
 						
-            message('申请退货成功，请等待审核！', mobile_url('myorder',array('status' => intval($_GP['fromstatus']))), 'success');
+            message('申请退货成功，请等待审核！', pc_url('myorder',array('status' => intval($_GP['fromstatus']))), 'success');
                   }
           include themePcPage('order_detail_return');
            exit;
@@ -45,13 +45,13 @@
             $dispatch = mysqld_select("select id,dispatchname,sendtype from " . table('shop_dispatch') . " where id=:id limit 1", array(":id" => $item['dispatch']));
            
             if (empty($item)) {
-                message('抱歉，您的订单不存在或是已经被取消！', mobile_url('myorder'), 'error');
+                message('抱歉，您的订单不存在或是已经被取消！', pc_url('myorder'), 'error');
             }
             $opname="换货";
         if (checksubmit("submit")) {
             mysqld_update('shop_order', array('status' =>  -3,'isrest'=>1,'rsreson' => $_GP['rsreson']), array('id' => $orderid, 'openid' => $openid ));
 						
-            message('申请换货成功，请等待审核！', mobile_url('myorder',array('status' => intval($_GP['fromstatus']))), 'success');
+            message('申请换货成功，请等待审核！', pc_url('myorder',array('status' => intval($_GP['fromstatus']))), 'success');
              }
           include themePcPage('order_detail_return');
            exit;
@@ -87,7 +87,7 @@
              mysqld_insert('shop_goods_comment', array('createtime'=>time(),'rate'=> $_GP['rate'],'ordersn' => $item['ordersn'],'optionname'=>$option['title'],'goodsid'=> $shop_order['goodsid'],'comment' => $_GP['rsreson'],'orderid' => $orderid, 'openid' => $openid ));
 						   mysqld_update('shop_order_goods', array('iscomment'=>1 ),array('id'=>$ogsid));
 					
-            message('评论成功！', mobile_url('myorder',array('status' => intval($_GP['fromstatus']))), 'success');
+            message('评论成功！', pc_url('myorder',array('status' => intval($_GP['fromstatus']))), 'success');
           }
              include themePcPage('order_detail_comment');
               exit;
@@ -99,7 +99,7 @@
             $dispatch = mysqld_select("select id,dispatchname,sendtype from " . table('shop_dispatch') . " where id=:id limit 1", array(":id" => $item['dispatch']));
            
             if (empty($item)) {
-                message('抱歉，您的订单不存在或是已经被取消！', mobile_url('myorder'), 'error');
+                message('抱歉，您的订单不存在或是已经被取消！', pc_url('myorder'), 'error');
             }
              $opname="退款";
         if (checksubmit("submit")) {
@@ -109,7 +109,7 @@
            	}
             mysqld_update('shop_order', array('status' => -2,'rsreson' => $_GP['rsreson']), array('id' => $orderid, 'openid' => $openid ));
 						
-            message('申请退款成功，请等待审核！', mobile_url('myorder',array('status' => intval($_GP['fromstatus']))), 'success');
+            message('申请退款成功，请等待审核！', pc_url('myorder',array('status' => intval($_GP['fromstatus']))), 'success');
           }
              include themePcPage('order_detail_return');
               exit;
@@ -117,7 +117,7 @@
             $orderid = intval($_GP['orderid']);
             $order = mysqld_select("SELECT * FROM " . table('shop_order') . " WHERE id = :id AND openid = :openid", array(':id' => $orderid, ':openid' => $openid ));
             if (empty($order)) {
-                message('抱歉，您的订单不存在或是已经被取消！', mobile_url('myorder'), 'error');
+                message('抱歉，您的订单不存在或是已经被取消！', pc_url('myorder'), 'error');
             }
             
              if (empty($order['isrest'])) {//不是换货
@@ -125,13 +125,13 @@
             }
             mysqld_update('shop_order', array('status' => 3,'updatetime'=>time()), array('id' => $orderid, 'openid' => $openid ));
 						
-            message('确认收货完成！', mobile_url('myorder',array('status' => intval($_GP['fromstatus']))), 'success');
+            message('确认收货完成！', pc_url('myorder',array('status' => intval($_GP['fromstatus']))), 'success');
         } else if ($op == 'detail') {
 
             $orderid = intval($_GP['orderid']);
             $item = mysqld_select("SELECT * FROM " . table('shop_order') . " WHERE openid = '".$openid."' and id='{$orderid}' limit 1");
             if (empty($item)) {
-                message('抱歉，您的订单不存或是已经被取消！', mobile_url('myorder'), 'error');
+                message('抱歉，您的订单不存或是已经被取消！', pc_url('myorder'), 'error');
             }
             if($item['hasbonus'])
         	   {

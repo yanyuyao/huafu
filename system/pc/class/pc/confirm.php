@@ -7,7 +7,7 @@
 					if(empty($_SESSION["noneedlogin"]))
 					{
 					tosaveloginfrom();
-					header("location:".create_url('mobile',array('name' => 'shopwap','do' => 'login','from'=>'confirm')));	
+					header("location:".create_url('pc',array('name' => 'pc','do' => 'login','from'=>'confirm')));	
 					}
 				}
 		
@@ -100,7 +100,7 @@
             
             
             $direct = true;
-            $returnurl = mobile_url("confirm", array("id" => $id, "optionid" => $optionid, "total" => $total));
+            $returnurl = pc_url("confirm", array("id" => $id, "optionid" => $optionid, "total" => $total));
         }
         if (!$direct) {
         
@@ -166,11 +166,11 @@
                 
                 unset($g);
             }
-            $returnurl = mobile_url("confirm");
+            $returnurl = pc_url("confirm");
         }
 
         if (count($allgoods) <= 0) {
-            header("location: " . mobile_url('myorder'));
+            header("location: " . pc_url('myorder'));
             exit();
         }
         //配送方式
@@ -411,7 +411,7 @@
                 mysqld_delete("shop_cart", array( "session_id" => $openid));
             }
             clearloginfrom(); 
-            header("Location:".mobile_url('pay', array('orderid' => $orderid,'topay'=>'1')) );
+            header("Location:".pc_url('pay', array('orderid' => $orderid,'topay'=>'1')) );
         }
   
   if(is_login_account())

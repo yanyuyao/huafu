@@ -20,6 +20,6 @@
 				}
 				$data = array('pwd' => md5($_GP['pwd']));
 				mysqld_update('member', $data,array('openid'=>$openid));
-			  message('密码修改成功！', mobile_url('fansindex'), 'success');
+			  message('密码修改成功！', pc_url('fansindex'), 'success');
 				}
 					   include themePcPage('member_pwd');

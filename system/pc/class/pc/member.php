@@ -36,7 +36,7 @@ if(!empty($weixinthirdlogin)&&!empty($weixinthirdlogin['id']))
 		
 				mysqld_update('member', $data,array('openid'=>$openid));
 			
-			  message('资料修改成功！', mobile_url('fansindex'), 'success');
+			  message('资料修改成功！', pc_url('fansindex'), 'success');
 			  
 							}
 		   include themePcPage('member');
