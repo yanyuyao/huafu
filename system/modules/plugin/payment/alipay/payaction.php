@@ -15,7 +15,11 @@ defined('SYSTEM_IN') or exit('Access Denied');
 			$payment = mysqld_select("SELECT * FROM " . table('payment') . " WHERE  enabled=1 and code='alipay' limit 1");
      $configs=unserialize($payment['configs']);
           //$goodtitle
-          
+          if(isset($_GET['mod']) && $_GET['mod'] == 'pc'){
+              $show_url = WEBSITE_ROOT.pc_url('myorder',array('name'=>'shopwap','op'=>'detail','orderid'=>$order['id'],'fromstatus'=>99));
+          }else{
+              $show_url = WEBSITE_ROOT.mobile_url('myorder',array('name'=>'shopwap','op'=>'detail','orderid'=>$order['id'],'fromstatus'=>99));
+          }
       $parameter = array(
 		"service" => "alipay.wap.create.direct.pay.by.user",
 		"partner" => trim($configs['alipay_safepid']),
@@ -26,7 +30,7 @@ defined('SYSTEM_IN') or exit('Access Denied');
 		"out_trade_no"	=> $order['ordersn'].'-'.$order['id'],
 		"subject"	=> $goodtitle,
 		"total_fee"	=> $order['price'],
-		"show_url"	=> WEBSITE_ROOT.mobile_url('myorder',array('name'=>'shopwap','op'=>'detail','orderid'=>$order['id'],'fromstatus'=>99)),
+		"show_url"	=> $show_url,
 		"body"	=> $goodtitle,
 		//"it_b_pay"	=> $it_b_pay,
 	//	"extern_token"	=> $extern_token,
