@@ -96,6 +96,12 @@
 	    	    </div>
 	        </div>
 		    <!--菜单-->
+                    <style>
+                        .nav li a {
+                            font-size: 14px;
+                            font-weight: 700;
+                        }
+                    </style>
 		    <div class="full_nav">
 		    	<div class="w1200">
 		    		<ul class="nav">
