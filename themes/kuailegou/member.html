@@ -30,10 +30,13 @@ body{background:#efefef ;}
 .pull-right {float:right;}
 .pull-left {float:left;}
 </style>
+
+    <!--@php  include page('head');@--> 
 </head>
 
-<body style="min-width: 320px;max-width: 640px;margin:0 auto;">
-
+<body style="margin:0 auto;max-width: 100%;min-width: 100%;width:100%;">
+    <!--@php  include page('headershort');@-->
+    <div class="w1200">
 <style>
 .form-horizontal .control-label{margin-bottom:5px; font-size:14px;}
 .form-group{margin-bottom:10px;}
@@ -153,8 +156,8 @@ body{background:#efefef ;}
 
 
 <div class="form-group">
-	<div class="col-xs-12">
-		<button type="submit" name="submit" value="submit" class="btn btn-primary btn-lg" style="width:100%;">提交</button>
+	<div class="col-xs-12" style="text-align:center;">
+		<button type="submit" name="submit" value="submit" class="btn btn-primary btn-lg" style="position: relative;   margin-top: 30px;   height: auto;   width: 150px;  margin: 30px auto;">提交</button>
 	</div>
 </div>
 
@@ -209,6 +212,6 @@ body{background:#efefef ;}
 	changeoutgold(document.getElementById('outgold_paytype'));
 //@-->
 </script>
-<!--@php  include page('footer');@-->	
-<!--@php include themePcPage('footer');@-->
+</div>
+    <!--@php  include page('footernav');@--> 
 </body></html>
