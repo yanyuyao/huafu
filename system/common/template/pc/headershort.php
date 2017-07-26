@@ -68,6 +68,37 @@
 	    		    </div>
 	    	    </div>
 	        </div>
-		   
+		   <!--菜单-->
+                    <style>
+                        .nav li a {
+                            font-size: 14px;
+                            font-weight: 700;
+                        }
+                    </style>
+		    <div class="full_nav">
+		    	<div class="w1200">
+		    		<ul class="nav">
+		    			<li class="li_all_type">
+		    				<a href="<?php echo pc_url('goodlist');?>">全部分类</a>
+		    				<b class="b_down"></b>
+		    			</li>
+		    			<li class="home">
+                                            <a href="<?php echo pc_url('shopindex');?>" style="color: #C41F3A;">首页</a>
+		    			</li>
+                                        <li class="home">
+                                            <a href="<?php echo pc_url('goodlist');?>" >全部商品</a>
+		    			</li>
+		    			<li>
+		    				<a href="<?php echo pc_url('myorder');?>">我的订单</a>
+		    			</li>
+		    			<li>
+		    				<a href="<?php echo pc_url('fansindex');?>">个人中心</a>
+		    			</li>
+                                        <li>
+		    				<a href="<?php echo pc_url('help');?>">购物须知</a>
+		    			</li>
+		    		</ul>
+		    	</div>
+	        </div>
 		</div>
 <!--头部end-->
