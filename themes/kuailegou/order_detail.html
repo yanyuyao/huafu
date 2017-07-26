@@ -9,7 +9,7 @@
     <meta name="format-detection" content="telephone=no">
 <script type="text/javascript" src="__RESOURCE__/script/jquery-1.7.2.min.js"></script>
 <script type="text/javascript" src="__RESOURCE__/script/common.js"></script>
-<link type="text/css" rel="stylesheet" href="__RESOURCE__/mobile/style/bootstrap.css">
+<!--<link type="text/css" rel="stylesheet" href="__RESOURCE__/mobile/style/bootstrap.css">-->
 <script type="text/javascript" src="__RESOURCE__/script/bootstrap.js"></script>
 <script type="text/javascript" src="__RESOURCE__/script/angular.min.js"></script>
 <link type="text/css" rel="stylesheet" href="__RESOURCE__/recouse/css/font-awesome.min.css" />
@@ -48,6 +48,7 @@ function tip_close(){
      $("#poptip_content").fadeOut(500);
 }
     </script>
+    <!--@php  include page('head');@--> 
 </head>
 
 
@@ -60,7 +61,7 @@ input[type="text"], input[type="password"], input[type="datetime"], input[type="
 
 .input-append, .input-prepend{width:100%; margin-bottom:0;}
 
-select{padding:0 5px; line-height:28px; -webkit-appearance:button;}
+select{padding:5px; -webkit-appearance:button;}
 
 .checkbox.inline{margin-top:0;}
 
@@ -76,17 +77,32 @@ select{padding:0 5px; line-height:28px; -webkit-appearance:button;}
 
 .form-item{border-left:3px #ED2F2F solid; padding-left:10px; height:30px; line-height:30px; background:#F7F7F7; margin-bottom:10px;}
 
+.btn.pull-right.btn-sm,.btn.btn-danger.btn-sm,.btn.btn-sm{
+    background: #e4393c;
+    color: #fff;
+    font-size: 14px;
+    line-height: auto;
+    text-align: center;
+    display: normal;
+    border-radius: 2px;
+    padding:8px 10px;
+    width:100px;
+    position: inherit;
+    float:right;
+}
+.btn.pull-right.btn-sm.btn-line, .btn.btn-sm.btn-line{
+    clear:both;
+    
+}
+
 </style>
 
 
 <link type="text/css" rel="stylesheet" href="__RESOURCE__/mobile/style/style.css">
 
-<body>
-<div class="head">
-	<a href="<!--@php  echo pc_url('myorder',array('status'=>intval($_GP['fromstatus'])))@-->" class="bn pull-left"><i class="icon-angle-left"></i></a>
-	<span class="title">订单详情</span>
-</div>
- 
+<body style="padding:0px;">
+    <!--@php  include page('headernav');@-->
+<div class="w1200">
 <div class="myoder" style='padding-bottom: 10px;'>
 	<div class="myoder-hd">
 		<span class="pull-left">订单编号：<!--@php  echo $item['ordersn'];@--></span>
@@ -94,23 +110,25 @@ select{padding:0 5px; line-height:28px; -webkit-appearance:button;}
 	</div>
     
 	<!--@php  if(is_array($goods)) { foreach($goods as $g) { @-->
-	<div >
-		<a href="<!--@php  echo pc_url('detail', array('id' => $g['id']))@-->"><img src="<!--@php echo WEBSITE_ROOT;@-->/attachment/<!--@php  echo $g['thumb'];@-->" width="160"></a>
+	<div style="clear:both;padding:10px;">
+            <a class="pull-left" style="margin-right:15px;" href="<!--@php  echo pc_url('detail', array('id' => $g['id']))@-->"><img src="<!--@php echo WEBSITE_ROOT;@-->/attachment/<!--@php  echo $g['thumb'];@-->" width="80" height="80"></a>
 		<div class="pull-left">
 			<div class="name"><a href="<!--@php  echo pc_url('detail', array('id' => $g['id']))@-->"><!--@php  echo $g['title'];@--></a></div>
 			<div class="price">
 				<span><!--@php  echo $g['marketprice'];@--> 元<!--@php  if($g['unit']) { @--> / <!--@php  echo $g['unit'];@--><!--@php  } @--></span>
 				<span class="num">数量：<!--@php  echo $g['total'];@--><!--@php  if($g['unit']) { @--> <!--@php  echo $g['unit'];@--><!--@php  } @--></span>
-				<!--@php  if(empty($g['iscomment'])) { @--> 
-				<span><a href="<!--@php  echo pc_url('myorder', array('orderid' => $item['id'],'ogsid' =>$g['id'],'optionid'=>$g['optionid'], 'op' => 'returncomment', 'fromstatus' => intval($_GP['fromstatus'])))@-->" class="btn btn-warning pull-right btn-sm" >商品评论</a></span>
-				<!--@php  }else{ @-->
+				
+<!--                                @php  if(empty($g['iscomment'])) { @ 
+				<span><a href="@php  echo pc_url('myorder', array('orderid' => $item['id'],'ogsid' =>$g['id'],'optionid'=>$g['optionid'], 'op' => 'returncomment', 'fromstatus' => intval($_GP['fromstatus'])))@" class="btn btn-warning pull-right btn-sm" >商品评论</a></span>
+				@php  }else{ @
 				<span>已评论</span>
-					<!--@php  } @-->
+				@php  } @-->
+                                
 			</div>
 		</div>
 	</div>
 	<!--@php  } } @-->
-	<div class="myoder-express">
+	<div class="myoder-express" style="clear:both;margin-top:20px;">
 		<span class="express-company">状态</span>
 		<span class="express-num">
 					<!--@php  if($item['status'] == 0) { @--><span class="text-warning" >待付款</span><!--@php  } @-->
@@ -192,27 +210,29 @@ location.href ="<!--@php  echo pc_url('pay', array('orderid' => $item['id']))@--
 		</div>
 		<!--@php  } @-->
 		<!--@php  if($item['status'] == 0||($item['paytype'] ==3&&$item['status'] ==1)) { @-->
-		<a href="	<!--@php  echo pc_url('myorder', array('orderid' => $item['id'], 'op' => 'cancelsend', 'fromstatus' => intval($_GP['fromstatus'])))@-->" class="btn btn-success pull-right btn-sm" onclick="return confirm('确认取消该订单吗？'); ">取消订单</a>
+		<a href="	<!--@php  echo pc_url('myorder', array('orderid' => $item['id'], 'op' => 'cancelsend', 'fromstatus' => intval($_GP['fromstatus'])))@-->" class="btn btn-success pull-right btn-sm btn-line" onclick="return confirm('确认取消该订单吗？'); ">取消订单</a>
 		<!--@php  } @-->
 		<!--@php  if($item['status'] == 2 || ($item['paytype'] == 3 && $item['status'] > 1&& $item['status'] < 3)) { @-->
-		<a href="<!--@php  echo pc_url('myorder', array('orderid' => $item['id'], 'op' => 'confirm', 'fromstatus' => intval($_GP['fromstatus'])))@-->" class="btn btn-success pull-right btn-sm" onclick="return confirm('点击确认收货前，请确认您的商品已经收到。确定收货吗？'); ">确认收货</a>
+		<a href="<!--@php  echo pc_url('myorder', array('orderid' => $item['id'], 'op' => 'confirm', 'fromstatus' => intval($_GP['fromstatus'])))@-->" class="btn btn-success pull-right btn-sm btn-line" onclick="return confirm('点击确认收货前，请确认您的商品已经收到。确定收货吗？'); ">确认收货</a>
 		<!--@php  } @-->
 			<!--@php  if($item['status'] == 1&&$item['paytype'] != 3) { @-->
-		<a href="<!--@php  echo pc_url('myorder', array('orderid' => $item['id'], 'op' => 'returnpay', 'fromstatus' => intval($_GP['fromstatus'])))@-->" class="btn btn-warning pull-right btn-sm" >申请退款</a>
+		<a href="<!--@php  echo pc_url('myorder', array('orderid' => $item['id'], 'op' => 'returnpay', 'fromstatus' => intval($_GP['fromstatus'])))@-->" class="btn btn-warning pull-right btn-sm btn-line" >申请退款</a>
 	
 			<!--@php  } @-->
 		
 				<!--@php  if($item['status'] == 3) { @-->
 		
-		<a href="<!--@php  echo pc_url('myorder', array('orderid' => $item['id'], 'op' => 'resendgood', 'fromstatus' => intval($_GP['fromstatus'])))@-->" class="btn btn-warning pull-right btn-sm" >申请换货</a>
+		<a href="<!--@php  echo pc_url('myorder', array('orderid' => $item['id'], 'op' => 'resendgood', 'fromstatus' => intval($_GP['fromstatus'])))@-->" class="btn btn-warning pull-right btn-sm btn-line" >申请换货</a>
 		<a  style="margin-right:10px" href="<!--@php  echo pc_url('myorder', array('orderid' => $item['id'], 'op' => 'returngood', 'fromstatus' => intval($_GP['fromstatus'])))@-->" class="btn btn-warning pull-right btn-sm" >申请退货</a>
 		
 		<!--@php  } @-->
 	</div>
 </div>
- 
- 
-<!--@php  include page('footer');@-->	
+</div>
 <script>
 t_hideOptionMenu()();
 </script>
+<!--@php  include page('footernav');@-->
+
+</body>
+</html>
