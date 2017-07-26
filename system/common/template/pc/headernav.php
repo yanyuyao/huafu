@@ -14,35 +14,35 @@
 					<div class="h_t_r">
 						<ul>
 							<li>
-								<a href="">订单查询</a>
+                                                            <a href="<?php echo pc_url('myorder');?>">订单查询</a>
 								<span class="line"></span>
 							</li>
 							<li>
-								<a href="">我的快乐购</a>
+								<a href="<?php echo pc_url('fansindex');?>">我的</a>
 								<span class="line"></span>
 							</li>
 							<li>
 								<i class="tel_icon"></i>
-								<a href="">400-705-1111</a>
+								<a href="">400-888-0000</a>
 								<span class="line"></span>
 							</li>
-							<li>
-								<a href="">下载快乐购app</a>
+<!--							<li>
+								<a href="">下载</a>
 								<div class="down_load">
-                                    <div class="down_border">
-                                        <b class="icon_top"></b>
-                                        <img style="" src="<?php echo THEMES_KUAILEGOU_ROOT;?>/__RESOURCE__/pc/image/down_load_20160411.png">
-                                        <p>快乐生活 快乐购</p>
-                                    </div>
-                                </div>
+                                                                    <div class="down_border">
+                                                                        <b class="icon_top"></b>
+                                                                        <img style="" src="<?php echo THEMES_KUAILEGOU_ROOT;?>/__RESOURCE__/pc/image/down_load_20160411.png">
+                                                                        <p>快乐生活 快乐购</p>
+                                                                    </div>
+                                                                </div>
 								<span class="line"></span>
-							</li>
+							</li>-->
 							<li class="cus_c_box">
-								<a href="">客服中心</a>
-								<div class="cus_center">
-                                    <a href="">帮助中心</a>
-                                    <a href="">会员反馈</a>
-                                </div>
+								<a href="<?php echo pc_url('help');?>">购物须知</a>
+<!--								<div class="cus_center">
+                                                                    <a href="">帮助中心</a>
+                                                                    <a href="">会员反馈</a>
+                                                                </div>-->
 							</li>
 						</ul>
 					</div>
@@ -89,7 +89,7 @@
 	    		    <div class="h_c_right">
 	    		    	<a href="<?php echo pc_url('mycart');?>" class="h_c_r_car">
 	    		    		<b class="b_car1"></b>
-	    		    		<span><i class="ci-count">0</i>我的购物车</span>
+	    		    		<span><!--<i class="ci-count">0</i>-->我的购物车</span>
 	    		    		<b class="b_car2"></b>
 	    		    	</a>
 	    		    </div>
@@ -100,20 +100,23 @@
 		    	<div class="w1200">
 		    		<ul class="nav">
 		    			<li class="li_all_type">
-		    				<a href="">全部分类</a>
+		    				<a href="<?php echo pc_url('goodlist');?>">全部分类</a>
 		    				<b class="b_down"></b>
 		    			</li>
 		    			<li class="home">
-		    				<a href="index.html" style="color: #C41F3A;">首页</a>
+                                            <a href="<?php echo pc_url('shopindex');?>" style="color: #C41F3A;">首页</a>
+		    			</li>
+                                        <li class="home">
+                                            <a href="<?php echo pc_url('goodlist');?>" >全部商品</a>
 		    			</li>
 		    			<li>
-		    				<a href="refined.html">精选品牌</a>
+		    				<a href="<?php echo pc_url('myorder');?>">我的订单</a>
 		    			</li>
 		    			<li>
-		    				<a href="go.html">全球购</a>
+		    				<a href="<?php echo pc_url('fansindex');?>">个人中心</a>
 		    			</li>
-		    			<li>
-		    				<a href="brand.html">品牌馆</a>
+                                        <li>
+		    				<a href="<?php echo pc_url('help');?>">购物须知</a>
 		    			</li>
 		    		</ul>
 		    	</div>
