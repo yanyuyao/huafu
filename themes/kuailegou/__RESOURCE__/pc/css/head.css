@@ -351,29 +351,34 @@ ul li{
 .full_nav ul li{
 	list-style: none;
 }
-.nav {
+.full_nav .nav {
     height: 39px;
     float: left;
 }
-.nav li a{
+.nav > li > a:hover,
+.nav > li > a:focus,
+.full_nav .nav li:hover,.full_nav > .nav > li > a:hover{
+    background-color:none;
+}
+.full_nav .nav li a{
 	color: #303030;
 	font-weight: 700;
 	font-family: "微软雅黑";
 }
-.nav .li_all_type {
+.full_nav .nav .li_all_type {
     width: 215px;
     padding: 0;
     text-align: center;
     background-color: #B1191A;
 }
-.nav .li_all_type a{
+.full_nav .nav .li_all_type a{
     color: #fff;
     font-size: 16px;
     float: left;
     padding-left: 55px;
     letter-spacing: 2px;
 }
-.nav li .b_down {
+.full_nav .nav li .b_down {
     background: url(./../image/icon_list.png) no-repeat -36px -128px;
     height: 8px;
     width: 16px;
@@ -381,7 +386,7 @@ ul li{
     right: 16px;
     top: 19px;
 }
-.nav li {
+.full_nav .nav li {
     float: left;
     padding: 0 30px;
     position: relative;
@@ -389,7 +394,7 @@ ul li{
     line-height: 39px;
     z-index: 5;
 }
-.nav .home {
+.full_nav .nav .home {
     padding: 0 30px 0 60px;
 }
 /**
