@@ -149,13 +149,14 @@ a {
 
 
 
-	</head>
-<body>
+    <!--@php  include page('head');@--> 
+</head>
 
-    
+<body style="margin:0 auto;max-width: 100%;min-width: 100%;width:100%;">
+    <!--@php  include page('headershort');@-->
 
-    
-	<div class="content ">
+    <div class="w1200">
+	<div class="content " style="width:700px;">
         <div class="content-body">
     <!-- 无优惠券情况下展示 -->
 	
@@ -203,8 +204,8 @@ a {
     </div>              
 
 	</div>  
-
-<!--@php include themePcPage('footer');@-->
+</div>
+	<!--@php  include page('footernav');@-->
  
 </body>
 </html>
