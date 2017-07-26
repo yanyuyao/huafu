@@ -16,10 +16,14 @@
     <script src="__RESOURCE__/recouse/js/foundation.tab.js"></script>
     <script src="__RESOURCE__/recouse/js/foundation.accordion.js"></script>
     <script src="__RESOURCE__/recouse/js/func.js"></script>
+    <!--@php  include page('head');@--> 
 </head>
-<body>
+
+<body style="margin:0 auto;max-width: 100%;min-width: 100%;width:100%;">
+    <!--@php  include page('headershort');@-->
+    <div class="w1200">
     <div class="mask"></div>
-    <form class="form-horizontal img-rounded" role="form" method="post" >
+    <form class="form-horizontal img-rounded" role="form" method="post" style="width:700px;margin:20px auto;background: #fff;" >
 
     <!--topbar end-->
     <!--amount begin-->
@@ -57,13 +61,8 @@
 
 </form>
    
-
-  <!--@php  include page('footer');@-->
-
-	
-
-<!--@php include themePcPage('footer');@-->
-
+</div>
+    <!--@php  include page('footernav');@--> 
 </body>
 
 </html>
