@@ -14,7 +14,12 @@
 			}
 				}
 				if($_GP['isok'] == '1') {
-					message('支付成功！',WEBSITE_ROOT.mobile_url('myorder'),'success');
+                                    if(isset($_GET['mod']) && $_GET['mod'] == 'pc'){
+                                        	message('支付成功！',WEBSITE_ROOT.pc_url('myorder'),'success');
+                                    }else{
+                                        	message('支付成功！',WEBSITE_ROOT.mobile_url('myorder'),'success');
+                                    }
+				
 				}
 			$payment = mysqld_select("SELECT * FROM " . table('payment') . " WHERE  enabled=1 and code='weixin' limit 1");
      $configs=unserialize($payment['configs']);
@@ -195,7 +200,12 @@ $settings=globaSetting(array("weixin_appId","weixin_appSecret"));
                     	<i class="pc-w-arrow-left">&lt;</i>
                         <strong>选择其他支付方式</strong>
                     </a>
-                       <a class="pc-wrap" style="float:right" href="<?php echo WEBSITE_ROOT;?>index.php?mod=mobile&name=shopwap&do=myorder">
+                    <?php  if(isset($_GET['mod']) && $_GET['mod'] == 'pc'){ ?>
+                        <a class="pc-wrap" style="float:right" href="<?php echo WEBSITE_ROOT;?>index.php?mod=pc&name=pc&do=myorder">
+                    <?php }else{ ?>
+                        <a class="pc-wrap" style="float:right" href="<?php echo WEBSITE_ROOT;?>index.php?mod=mobile&name=shopwap&do=myorder">
+                    <?php } ?>
+                      
                         <strong>如完成支付没有跳转请点击</strong>
                         <i class="pc-w-arrow-right">&gt;</i>
                     </a>
@@ -222,10 +232,20 @@ $settings=globaSetting(array("weixin_appId","weixin_appSecret"));
   <script type="text/javascript" language="javascript">
       function checkorder()
       {
-      	$.getJSON("<?php echo WEBSITE_ROOT;?><?php echo 	create_url('mobile',array('name' => 'shopwap','do' => 'getorder','id'=>$order['id']));?>", { }, function(json){
+            <?php  if(isset($_GET['mod']) && $_GET['mod'] == 'pc'){ ?>
+                var geturl = "<?php echo WEBSITE_ROOT;?><?php echo 	create_url('pc',array('name' => 'pc','do' => 'getorder','id'=>$order['id']));?>";
+            <?php }else{ ?>
+                var geturl = "<?php echo WEBSITE_ROOT;?><?php echo 	create_url('mobile',array('name' => 'shopwap','do' => 'getorder','id'=>$order['id']));?>";
+            <?php } ?>
+      	$.getJSON(geturl, { }, function(json){
   if(json.status>0)
   {
-  location.href="<?php echo WEBSITE_ROOT;?>index.php?mod=mobile&name=shopwap&do=myorder";	
+    <?php  if(isset($_GET['mod']) && $_GET['mod'] == 'pc'){ ?>
+            var returnurl = "<?php echo WEBSITE_ROOT;?>index.php?mod=mobile&name=shopwap&do=myorder";
+    <?php }else{ ?>
+            var returnurl = "<?php echo WEBSITE_ROOT;?>index.php?mod=mobile&name=shopwap&do=myorder";
+    <?php } ?>
+    location.href= returnurl;	
   }
 });
       }

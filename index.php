@@ -10,6 +10,9 @@ if(!file_exists(str_replace("\\",'/', dirname(__FILE__)).'/config/install.link')
 if(defined('SYSTEM_ACT')&&SYSTEM_ACT=='mobile')
 {
 	$mod='mobile';
+}else if(defined('SYSTEM_ACT')&&SYSTEM_ACT=='pc')
+{
+	$mod='pc';
 }else
 {
 	$mod=empty($_REQUEST['mod'])?'mobile':$_REQUEST['mod'];	
@@ -17,6 +20,9 @@ if(defined('SYSTEM_ACT')&&SYSTEM_ACT=='mobile')
 if($mod=='mobile')
 {
 	defined('SYSTEM_ACT') or define('SYSTEM_ACT', 'mobile');
+}else if($mod=='pc')
+{
+	defined('SYSTEM_ACT') or define('SYSTEM_ACT', 'pc');
 }else
 {
 	defined('SYSTEM_ACT') or define('SYSTEM_ACT', 'index');	
@@ -37,4 +43,3 @@ if(!empty($do))
 				ob_end_flush();
 				exit;
 }
-

@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>深圳市华府智能科技有限公司</title>
+    <link href="css/mui.min.css" rel="stylesheet"/>
+    <link href="css/mui.picker.css" rel="stylesheet">
+    <link href="css/mui.poppicker.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet"/>
+</head>
+<body>
+	<div class="mui-content" style="background-color: #fff; margin-bottom:50px;">
+		<div id="slider" class="mui-slider" >
+			<div class="mui-slider-group mui-slider-loop">
+				<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+				<div class="mui-slider-item mui-slider-item-duplicate">
+					<a href="#">
+						<img src="images/b5.png">
+					</a>
+				</div>
+				<!-- 第一张 -->
+				<div class="mui-slider-item">
+					<a href="#">
+						<img src="images/b1.jpg">
+					</a>
+				</div>
+				<!-- 第二张 -->
+				<div class="mui-slider-item">
+					<a href="#">
+						<img src="images/b2.jpg">
+					</a>
+				</div>
+				<!-- 第三张 -->
+				<div class="mui-slider-item">
+					<a href="#">
+						<img src="images/b3.png">
+					</a>
+				</div>
+				<!-- 第四张 -->
+				<div class="mui-slider-item">
+					<a href="#">
+						<img src="images/b4.png">
+					</a>
+				</div>
+				<!-- 第五张 -->
+				<div class="mui-slider-item">
+					<a href="#">
+						<img src="images/b5.png">
+					</a>
+				</div>
+				<!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+				<div class="mui-slider-item mui-slider-item-duplicate">
+					<a href="#">
+						<img src="images/b1.jpg">
+					</a>
+				</div>
+			</div>
+			<div class="mui-slider-indicator">
+				<div class="mui-indicator mui-active"></div>
+				<div class="mui-indicator"></div>
+				<div class="mui-indicator"></div>
+				<div class="mui-indicator"></div>
+				<div class="mui-indicator"></div>
+			</div>
+		</div>
+		<!--轮播图 end-->
+		<div class="nav1">
+			<div class="nav1-bt">
+				华府家用真空机包装机商用食品抽真空小型热封口机食品袋压缩机
+			</div>
+			<div class="nav1-price">
+				<div class="nav1-xian">
+					促销价：<span class="nav1-xian-price">￥398</span>
+				</div>
+				<div class="nav1-yuan">原价：￥500</div>
+			</div>
+		</div>
+		<!--nav1 end-->
+		<a href="#buy">
+			<div class="nav2">
+				<input type="button" value="立即购买">
+			</div>
+		</a>
+		<!--nav2 end-->
+		<div class="nav3">
+			<img src="images/bd1.jpg">
+			<img src="images/bd2.jpg">
+			<img src="images/bd3.jpg">
+			<img src="images/bd4.jpg">
+			<img src="images/bd5.jpg">
+			<img src="images/bd6.jpg">
+			<img src="images/bd7.jpg">
+			<img src="images/bd8.jpg">
+			<img src="images/bd9.jpg">
+			<img src="images/bd10.jpg">
+			<img src="images/bd11.jpg">
+			<img src="images/bd12.jpg">
+			<img src="images/bd13.jpg">
+			<img src="images/bd14.jpg">
+			<img src="images/bd15.jpg">
+			<img src="images/bd16.jpg">
+			<img src="images/bd17.jpg">
+			<img src="images/bd18.jpg">
+			<img src="images/bd19.jpg">
+			<img src="images/bd20.jpg">
+			<img src="images/bd21.jpg">
+			<img src="images/bd22.jpg">
+		</div>
+		<!--nav3 图文详情 end-->
+		<div class="nav4" name="buy" id="buy">
+			<div class="nav4-bt">订单信息</div>
+			<div class="nav4-content">
+				<div>
+					<div class="nav4-right">
+						<div class="nav4-product-single active" title="398">真空主机</div>
+						<div class="nav4-product-single" title="11">保鲜袋</div>
+					</div>
+					<div class="nav4-content-bt">产品：</div>
+					<div style="clear:both;"></div>
+				</div>
+				<div>
+					<div class="nav4-right">
+						<div class="danjia"></div>
+					</div>
+					<div class="nav4-content-bt">单价：</div>
+					<div style="clear:both;"></div>
+				</div>
+				<div>
+					<div class="nav4-right">
+						<div class="mui-numbox" data-numbox-min='1'>
+							<button class="mui-btn mui-btn-numbox-minus" type="button">-</button>
+							<input id="test" class="mui-input-numbox" type="number" value="1" />
+							<button class="mui-btn mui-btn-numbox-plus" type="button">+</button>
+						</div>
+						（库存：500）
+					</div>
+					<div class="nav4-content-bt">数量：</div>
+					<div style="clear:both;"></div>
+				</div>
+				<div>
+					<div class="nav4-right" id="dd-you">
+						<select>
+							<option>包邮</option>
+						</select>
+					</div>
+					<div class="nav4-content-bt">运费：</div>
+					<div style="clear:both;"></div>
+				</div>
+				<div>
+					<div class="nav4-right">
+						<input id="dd-name" type="text" placeholder="请输入姓名">
+					</div>
+					<div class="nav4-content-bt">姓名：</div>
+					<div style="clear:both;"></div>
+				</div>
+				<div>
+					<div class="nav4-right">
+						<input id="dd-tel" type="tel" placeholder="请输入手机号" maxlength="11">
+					</div>
+					<div class="nav4-content-bt">手机：</div>
+					<div style="clear:both;"></div>
+				</div>
+				<div>
+					<div class="nav4-right" id="dd-addr">
+						<input id='showCityPicker3' class="mui-btn mui-btn-block" type='button' value="选择省市区"></input>
+					</div>
+					<div class="nav4-content-bt">地址：</div>
+					<div style="clear:both;"></div>
+				</div>
+				<div>
+					<div class="nav4-right">
+						<input id="dd-addrall" type="text" placeholder="请输入详细地址">
+					</div>
+					<div class="nav4-content-bt">详细地址：</div>
+					<div style="clear:both;"></div>
+				</div>
+				<div>
+					<div class="nav4-right">
+						<textarea placeholder="请输入备注"></textarea>
+					</div>
+					<div class="nav4-content-bt">备注：</div>
+					<div style="clear:both;"></div>
+				</div>
+				<div class="total">价格：￥0</div>
+				<div id="dd-message"></div>
+				<div class="nav2">
+					<input id="submit" type="button" value="提交订单">
+				</div>
+			</div>
+		</div>
+		<!--nav4 end-->
+		<div class="nav5">
+			<div class="nav4-bt">历史订单</div>
+			<!--<div class="nav5-content">-->
+			<div class="nav5-content">
+				<div class="list_lh">
+					<ul>
+						<li>
+							<div>最新购买</div>
+							李**（158****2345）在13小时前购买了  1个红古铜色 无线指纹密码锁
+						</li>
+						<li>
+							<div>最新购买</div>
+							李**（158****2345）在13小时前购买了  1个红古铜色 无线指纹密码锁
+						</li>
+						<li>
+							<div>最新购买</div>
+							李**（158****2345）在13小时前购买了  1个红古铜色 无线指纹密码锁
+						</li>
+						<li>
+							<div>最新购买</div>
+							李**（158****2345）在13小时前购买了  1个红古铜色 无线指纹密码锁
+						</li>
+						<li>
+							<div>最新购买</div>
+							李**（158****2345）在13小时前购买了  1个红古铜色 无线指纹密码锁
+						</li>
+						<li>
+							<div>最新购买</div>
+							李**（158****2345）在13小时前购买了  1个红古铜色 无线指纹密码锁
+						</li>
+						<li>
+							<div>最新购买</div>
+							李**（158****2345）在13小时前购买了  1个红古铜色 无线指纹密码锁
+						</li>
+						<li>
+							<div>最新购买</div>
+							李**（158****2345）在13小时前购买了  1个红古铜色 无线指纹密码锁
+						</li>
+						<li>
+							<div>最新购买</div>
+							李**（158****2345）在13小时前购买了  1个红古铜色 无线指纹密码锁
+						</li>
+						<li>
+							<div>最新购买</div>
+							李**（158****2345）在13小时前购买了  1个红古铜色 无线指纹密码锁
+						</li>
+						<li>
+							<div>最新购买</div>
+							李**（158****2345）在13小时前购买了  1个红古铜色 无线指纹密码锁
+						</li>
+						<li>
+							<div>最新购买</div>
+							李**（158****2345）在13小时前购买了  1个红古铜色 无线指纹密码锁
+						</li>
+						<li>
+							<div>最新购买</div>
+							李**（158****2345）在13小时前购买了  1个红古铜色 无线指纹密码锁
+						</li>
+						<li>
+							<div>最新购买</div>
+							李**（158****2345）在13小时前购买了  1个红古铜色 无线指纹密码锁
+						</li>
+					</ul>
+				</div>
+				<div id="colee2"></div>
+			</div>
+		</div>
+		<div class="footer">
+			<a href="tel:+86 0755-27623158"><div class="footer-single">联系我们</div></a>
+			<a href="#buy"><div class="footer-single">立即购买</div></a>
+			<!--<a href="https://item.taobao.com/item.htm?spm=a1z10.1-c.w4004-7316360490.4.466dc6e4uXpKh0&id=542851341687"><div class="footer-single">淘宝店铺</div></a>-->
+		</div>
+	</div>
+	<script src="js/jquery.js"></script>
+	<script src="js/mui.min.js"></script>
+    <script src="js/adaptive.js"></script>
+    <script src="js/mui.picker.js"></script>
+    <script src="js/mui.poppicker.js"></script>
+    <script src="js/city.data-3.js"></script>
+    <script src="js/scroll-jquery.js"></script>
+    <script src="js/scroll.js"></script>
+    <script type="text/javascript" charset="utf-8">
+      	mui.init();
+    </script>
+	<script>
+		var slider = mui("#slider");
+		slider.slider({
+			interval: 3000
+		});
+		(function($,$$,doc) {
+			//产品点击效果
+			$$(".nav4-product-single").click(function(){
+				$$(this).addClass("active");
+				$$(this).siblings(".nav4-product-single").removeClass("active");
+			})
+			
+			//订单提交校验
+			$$("#submit").click(function(){
+				var ddProduct = $$(".nav4-product-single.active").html();
+				if(ddProduct == undefined){
+					$$("#dd-message").html("请选择产品");
+				}else if($$("#dd-name").val() == ''){
+					$$("#dd-message").html("请填写姓名");
+				}else if($$("#dd-tel").val() == ''){
+					$$("#dd-message").html("请填写手机号");
+				}else if($$("#dd-tel").val().length<11){
+					$$("#dd-message").html("手机号不足11位");
+				}else if($$("#dd-addr input").val() == '选择省市区'){
+					$$("#dd-message").html("请选择地址");
+				}else if($$("#dd-addrall").val() == ''){
+					$$("#dd-message").html("请填写详细地址");
+				}else{
+					$$("#dd-message").html("");
+				}
+			})
+			//初始化显示产品单价
+			var product = $$(".nav4-product-single.active").attr("title");
+			$$(".danjia").html("￥"+product);
+			//点击产品显示单价
+			$$(".nav4-product-single").click(function(){
+				var product = $$(".nav4-product-single.active").attr("title");
+				$$(".danjia").html("￥"+product);
+			})
+			//计算总价
+			$$(".nav4-product-single,.mui-btn-numbox-minus,.mui-btn-numbox-plus").click(function(){
+				var product = $$(".nav4-product-single.active").attr("title");
+				var num = parseInt($$("#test").val());
+				if(product==undefined){
+					$$(".total").html("价格：￥0");
+				}else{
+					var productPrice = parseInt(product);
+					totalPrice = productPrice*num;
+					$$(".total").html("价格：￥"+totalPrice);
+					console.log(productPrice+","+num);
+				}
+			})
+			$$("#test").change(function(){
+				var product = $$(".nav4-product-single.active").attr("title");
+				var num = parseInt($$("#test").val());
+				if(product==undefined){
+					$$(".total").html("价格：￥0");
+				}else{
+					var productPrice = parseInt(product);
+					totalPrice = productPrice*num;
+					$$(".total").html("价格：￥"+totalPrice);
+					console.log(productPrice+","+num);
+				}
+			})
+			
+			//底部文字滚动
+			$$(function(){
+				$$("div.list_lh").myScroll({
+					speed:50, //数值越大，速度越慢
+					rowHeight:27 //li的高度
+				});
+			})
+			
+			//三级联动
+			$.init();
+			$.ready(function() {
+				$$(".dowebok").css("height","170px");
+				//					//3级联
+				var cityPicker3 = new $.PopPicker({
+					layer: 3
+				});
+				cityPicker3.setData(cityData3);
+				var showCityPickerButton = doc.getElementById('showCityPicker3');
+				var cityResult3 = doc.getElementById('cityResult3');
+				showCityPickerButton.addEventListener('tap', function(event) {
+					cityPicker3.show(function(items) {
+						var result = (items[0] || {}).text + " " + (items[1] || {}).text + " " + (items[2] || {}).text;
+						$$("#showCityPicker3").val(result);
+					});
+				}, false);
+			});
+		})(mui,jQuery,document);
+    
+	</script>
+</body>
+</html>
