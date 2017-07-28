@@ -4,7 +4,8 @@
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title><!--@php  echo $goods['title'];@-->|深圳市华府智能科技有限公司</title>
-    <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <!--<meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,user-scalable=no">-->
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="format-detection" content="telephone=no">
@@ -17,7 +18,7 @@
     <script type="text/javascript" src="__RESOURCE__/recouse/js/transport.js"></script>
     <script type="text/javascript" src="__RESOURCE__/recouse/js/utils.js"></script>
     
-    <!--<link href="__RESOURCE__/ppromotion/css/mui.min.css" rel="stylesheet"/>-->
+    <link href="__RESOURCE__/ppromotion/css/mui.min.css" rel="stylesheet"/>
 <!--    <link href="__RESOURCE__/ppromotion/css/mui.picker.css" rel="stylesheet">
     <link href="__RESOURCE__/ppromotion/css/mui.poppicker.css" rel="stylesheet">-->
     <link href="__RESOURCE__/ppromotion/css/style.css" rel="stylesheet"/>
@@ -58,14 +59,54 @@
             max-width: 100%;
             height: auto;
         }
-
-
+.detail-group .current {
+    background: #23AFE7;
+    color: #fff;
+    border: 1px solid #23AFE7;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+}
+.detail-group .property.current{
+    color:#fff;
+}
+.detail-group .property {
+    border: 1px solid #23AFE7;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    color:#000;
+}
+.nav4-right input,.nav4-right textarea{
+    width:100%;
+    padding:0px;
+}
+.nav4-right select{
+    width:100%;
+}
+.nav4-right{
+    width:70%;
+    float:left;
+    margin-bottom: 18px;
+}
+.nav4-content-bt{
+    width:20%;
+    margin-left:10px;
+    float:left;
+}
+.jx-price,.jx-pricem,.name{
+    color:#000;
+}
+.nav5-content ul li{
+    line-height: 28px;
+    margin:0px;
+}
     </style>
-
+  
 </head>
-<body style=" margin:0 auto;margin-bottom: 59px">
-<div class="mui-content" style="background-color: #fff; margin-bottom:50px;">
-
+<body style=" margin:0 auto;">
+<div class="mui-content" style="background-color: #fff;">
+ 
 <div class="main">
 
 
@@ -199,12 +240,13 @@
     </div>
 </div>   
 <!--nav3 图文详情 end-->
+<form action="javascript:addToCart(6)" method="post" name="ECS_FORMBUY" id="ECS_FORMBUY">
 <div class="nav4" name="buy" id="buy" style="padding:0px;">
 			<div class="nav4-bt">订单信息</div>
-			<div class="nav4-content" style="padding:0px;margin:10px 10px;">
+			<div class="nav4-content" style="padding:0px;margin:10px 0px;">
                             <!-- {{{ detail product items -->
                             <div class="pro-info">
-                                                                                    <p class="pro-name" style="height:auto;"><strong><!--@php  echo $goods['title'];@--></strong></br></p>
+                                                                                    <p class="pro-name" style="height:auto;margin:0px;padding:10px;background:none;color:#23AFE7;"><strong style="color:#23AFE7;"><!--@php  echo $goods['title'];@--></strong></br></p>
 
 
                                                                                     <div class="price clearfix">
@@ -221,10 +263,10 @@
                                                                                     </div>
 
 
-                                                                                    <div class="goods_number clearfix">
+<!--                                                                                    <div class="goods_number clearfix">
                                                                                         <p class="name">货&nbsp;&nbsp;&nbsp;号</p>
-                                                                                        <strong style=" padding-left:15px;color:#BEBEBE"><!--@php  echo $goods['goodssn'];@--></strong>
-                                                                                    </div>
+                                                                                        <strong style=" padding-left:15px;color:#BEBEBE">@php  echo $goods['goodssn'];@</strong>
+                                                                                    </div>-->
                                                                                     <!--@php  } @-->
                                                                                     <!--@php  if($goods['istime']==1) { @-->
                                                                                     <div class="price clearfix">
@@ -306,7 +348,7 @@
 
                                                                                 <!--@php  if($goods['istime']==1&&$stock!=-1) { @-->
                                                                                 <div class="price clearfix">
-                                                                                    <p class="jx-price">剩&nbsp;&nbsp;&nbsp;余:<strong style=" padding-left:15px;color:#BEBEBE; "
+                                                                                    <p class="jx-price">剩&nbsp;&nbsp;&nbsp;余：<strong style=" padding-left:15px;color:#BEBEBE; "
                                                                                                                                      id="goodstotail">
                                                                                         <!--@php  echo $stock;@--></strong></p>
                                                                                 </div>
@@ -324,9 +366,20 @@
                                                                                 <!--@php  } @-->
                                                                                 <!--@php  } @-->
                                                                                 -->
-                                                                                <form action="javascript:addToCart(6)" method="post" name="ECS_FORMBUY" id="ECS_FORMBUY">
 
-                                                                                    <div class="goods_number clearfix">
+<div class="goods_number clearfix" style="margin:0px;">
+        <div class="nav4-content-bt">数量：</div>
+        <div class="nav4-right">
+                <div class="mui-numbox" data-numbox-min='1'>
+                        <input type="button" class="mui-btn mui-btn-numbox-minus" value="-" class="btn" onClick="chgNum(-1);"/>
+                        <input type="text" class="mui-input-numbox" id="total" name="number" value="1" class="text"/>
+                        <input type="button" class="mui-btn mui-btn-numbox-plus" value="+" class="btn" onClick="chgNum(1);"/>
+                </div>
+                 <!--@php  if($goods['istime']!=1&&$stock!=-1) { @-->(库存：<strong id="goodstotail"><!--@php  echo $stock;@--></strong>)<!--@php  } @-->
+        </div>
+        <div style="clear:both;"></div>
+</div>
+<!--                                                                                    <div class="goods_number clearfix">
                                                                                         <p class="name">数&nbsp;&nbsp;&nbsp;量</p>
 
                                                                                         <div class="addForm">
@@ -334,21 +387,18 @@
                                                                                             <input type="text" id="total" name="number" value="1" class="text"/>
                                                                                             <input type="button" value="+" class="btn" onClick="chgNum(1);"/>
                                                                                         </div>
-                                                                                        <!--@php  if($goods['istime']!=1&&$stock!=-1) { @-->(库存：<strong id="goodstotail">
-                                                                                        <!--@php  echo $stock;@--></strong>)<!--@php  } @-->
-                                                                                        <!--  -->
-                                                                                    </div>
+                                                                                    </div>-->
 
 
                                                                                     <!--@php  if($goods['hasoption']==1) { @-->
                                                                                     <!--@php  if(is_array($specs)) { foreach($specs as $spec) { @-->
                                                                                     <input type='hidden' name="optionid[]" class='optionid optionid_<!--@php  echo $spec[' id'];@-->'
                                                                                     value="" title="<!--@php  echo $spec['title'];@-->">
-                                                                                    <div id='option_group' class='detail-group' style="margin-top:10px;">
+                                                                                    <div id='option_group' class='detail-group' style="margin-top:0px;">
 
                                                                                         <div class="detail-group">
 
-                                                                                            <span style='float:left;margin-left:15px;padding:0'><!--@php  echo $spec['title'];@--> :</span>
+                                                                                            <span style='float:left;padding:0;width:18%;margin-left:10px;'><!--@php  echo $spec['title'];@-->：</span>
                                                                                             <span style="float:left;margin-left:8px;" class='options options_<!--@php  echo $spec[' id'];@-->'
                                                                                             specid='<!--@php  echo $spec['id'];@-->'>
 
@@ -372,106 +422,100 @@
                                                                                     </div>
                                                                                     <!--@php  } } @-->
                                                                                     <!--@php  } @-->
-                                                                                </form>
+                                                                                
 
 
                                                                                 <input type="hidden" id="optionid" name="optionid" value=""/>
 
                             <!-- }}} detail product items -->
-<!--				<div>
-					<div class="nav4-right">
-						<div class="nav4-product-single active" title="1280">原钢色</div>
-						<div class="nav4-product-single" title="1280">古红色</div>
-					</div>
-					<div class="nav4-content-bt">产品：</div>
-					<div style="clear:both;"></div>
-				</div>
+
 				<div>
-					<div class="nav4-right">
-						<div class="danjia">￥200</div>
-					</div>
-					<div class="nav4-content-bt">单价：</div>
-					<div style="clear:both;"></div>
-				</div>
-				<div>
-					<div class="nav4-right">
-						<div class="mui-numbox" data-numbox-min='1'>
-							<button class="mui-btn mui-btn-numbox-minus" type="button">-</button>
-							<input id="test" class="mui-input-numbox" type="number" value="1" />
-							<button class="mui-btn mui-btn-numbox-plus" type="button">+</button>
-						</div>
-						（库存：500）
-					</div>
-					<div class="nav4-content-bt">数量：</div>
-					<div style="clear:both;"></div>
-				</div>-->
-				<div>
-					<div class="nav4-right" id="dd-you">
-						<select>
-							<option>包邮</option>
-						</select>
-					</div>
 					<div class="nav4-content-bt">运费：</div>
-					<div style="clear:both;"></div>
-				</div>
-				<div>
-					<div class="nav4-right" id="dd-service">
-						<select>
-							<option>上门安装（服务费200元）</option>
-							<option>无服务</option>
+					<div class="nav4-right" id="dd-you">
+						<select name="shipping">
+							<option value="0">包邮</option>
+							<option value="200">运费200</option>
 						</select>
 					</div>
+					<div style="clear:both;"></div>
+				</div>
+				<div>
 					<div class="nav4-content-bt">服务：</div>
+					<div class="nav4-right" id="dd-service">
+						<select name="serviceprice">
+							<option value="200">上门安装（服务费200元）</option>
+							<option value="0">无服务</option>
+						</select>
+					</div>
 					<div style="clear:both;"></div>
 				</div>
 				<div>
-					<div class="nav4-right">
-						<input id="dd-name" type="text" placeholder="请输入姓名">
-					</div>
 					<div class="nav4-content-bt">姓名：</div>
+					<div class="nav4-right">
+						<input id="dd-name" name="realname" type="text" placeholder="请输入姓名">
+					</div>
 					<div style="clear:both;"></div>
 				</div>
 				<div>
-					<div class="nav4-right">
-						<input id="dd-tel" type="tel" placeholder="请输入手机号" maxlength="11">
-					</div>
 					<div class="nav4-content-bt">手机：</div>
+					<div class="nav4-right">
+						<input id="dd-tel" type="tel" name="phone" placeholder="请输入手机号" maxlength="11">
+					</div>
 					<div style="clear:both;"></div>
 				</div>
 				<div>
-					<div class="nav4-right" id="dd-addr">
-						<input id='showCityPicker3' class="mui-btn mui-btn-block" type='button' value="选择省市区"></input>
-					</div>
 					<div class="nav4-content-bt">地址：</div>
+					<div class="nav4-right" id="dd-addr">
+						<!--<input id='showCityPicker3' class="mui-btn mui-btn-block" type='button' value="选择省市区"></input>-->
+
+                                                <select id="sel-provance" name="provance" onChange="selectCity();" class="pull-left form-control" style="width:28%; margin-right:1%;">
+
+                                                        <option value="" selected="true">省/直辖市</option>
+
+                                                </select>
+
+                                                <select id="sel-city" name="city" onChange="selectcounty()" class="pull-left form-control" style="width:28%; margin-right:1%;">
+
+                                                        <option value="" selected="true">请选择</option>
+
+                                                </select>
+
+                                                <select id="sel-area" name="area" class="pull-left form-control" style="width:28%;">
+
+                                                        <option value="" selected="true">请选择</option>
+
+                                                </select>
+					</div>
 					<div style="clear:both;"></div>
 				</div>
 				<div>
-					<div class="nav4-right">
-						<input id="dd-addrall" type="text" placeholder="请输入详细地址">
-					</div>
 					<div class="nav4-content-bt">详细地址：</div>
+					<div class="nav4-right">
+						<input id="dd-addrall" name="detailaddress" type="text" placeholder="请输入详细地址">
+					</div>
 					<div style="clear:both;"></div>
 				</div>
 				<div>
-					<div class="nav4-right">
-						<textarea placeholder="请输入备注"></textarea>
-					</div>
 					<div class="nav4-content-bt">备注：</div>
+					<div class="nav4-right">
+						<textarea placeholder="请输入备注" name="note"></textarea>
+					</div>
 					<div style="clear:both;"></div>
 				</div>
 				<div class="total">价格：￥0</div>
 				<div id="dd-message"></div>
 				<div class="nav2">
-					<input id="submit" type="button" value="提交订单">
+					<input id="submit" type="button" value="提交订单" onclick='buy()'>
 				</div>
 			</div>
 		</div>
+</form>
 		<!--nav4 end-->
                 <div class="nav5">
 			<div class="nav4-bt">历史订单</div>
 			<!--<div class="nav5-content">-->
-			<div class="nav5-content">
-				<div class="list_lh">
+			<div class="nav5-content" style="height:150px;">
+				<div class="list_lh" id="FontScroll">
 					<ul>
 						<li>
 							<div>最新购买</div>
@@ -520,63 +564,12 @@
                 <!-- end nav5-->
    </div>
 
-
-            <div class="active">
+<!--            <div class="active">
                 <p class="tip"></p>
-            </div>
+            </div>-->
 
-            <div class="card card-list">
-
-
-                <div style="clear:both;"></div>
-<!--                <div class="pro-info1">
-                    <p class="pro-name1"><strong></strong></p>
-                </div>
-
-
-                <div class="custom-store">
-
-                    <a class="custom-store-link clearfix" href="@php  echo mobile_url('shopindex')@">
-                        <div class="custom-store-img"></div>
-                        <div class="custom-store-name">@php  echo $cfg['shop_title'];@</div>
-                        <span class="custom-store-enter">进入首页</span>
-                    </a>
-
-                </div>
-                <div class="pro-info1">
-                    <p class="pro-name1"><strong></strong></p>
-                </div>-->
-
-
-                <div id="buy_lay"></div>
-                <div id="buy_lay_frm">
-                    <div class="frm">
-                        <div class="tips">商品已添加到购物车！</div>
-                        <div class="btns">
-                            <input id="btn_continue" class="btn" type="button" value=" 再逛会 "/>
-                            <input id="btn_check" class="btn" type="button" value=" 去结算 "/>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="btn_wrap btn_wrap_fixed" id="btnTools">
-                    <input type="hidden" id="favoriteId" value=""/>
-                    <!-- <a class="btn_fav" href="javascript:void(0);" id="collect-link"><i></i></a>    -->
-                    <div class="btn_col">
-                        <a class="btn btn_cart" href="javascript:void()" onclick='addtocart()'>加入购物车</a>
-
-                        <a class="btn btn_buy" href="javascript:void()" onclick='buy()'>立即购买</a>
-                    </div>
-
-                    <a class="cart_wrap" href="<!--@php  echo mobile_url('mycart')@-->">
-                        <i class="i_cart" id="cartNum"></i>
-                        <span class="cart"></span>
-                        <span class="add_num" id="popone">+1</span>
-                    </a>
-                </div>
-
-
+            <div class="card card-list" style="background-color:none;margin:0px;">
+                <!--<div style="clear:both;"></div>-->
                 <script>
 
                     $(function () {
@@ -629,13 +622,8 @@
     </script>
     <div class="viewport">
         <!--@php  include page('footer');@-->
-
     </div>
-
-
     <script src="__RESOURCE__/recouse/js/zepto.min.js" type="text/javascript"></script>
-
-
     <script type="text/javascript">
         var options =<!--@php  echo json_encode($options)@-->;
         var specs =<!--@php  echo json_encode($specs)@-->;
@@ -823,17 +811,64 @@ function option_selected(){
      return ret;
 }
 </script>
+<script type="text/javascript" src="__RESOURCE__/recouse/js/cascade.js?x=14"></script>
 
 <script>
+    cascdeInit('__RESOURCE__/recouse/js','','','');
 	//底部文字滚动
-			
-        $("div.list_lh").myScroll({
-                speed:50, //数值越大，速度越慢
-                rowHeight:27 //li的高度
-        });
+(function($){
+    $.fn.FontScroll = function(options){
+        var d = {time: 3000,s: 'fontColor',num: 1}
+        var o = $.extend(d,options);
+        
+
+        this.children('ul').addClass('line');
+        var _con = $('.line').eq(0);
+        var _conH = _con.height(); //滚动总高度
+        var _conChildH = _con.children().eq(0).height();//一次滚动高度
+        var _temp = _conChildH;  //临时变量
+        var _time = d.time;  //滚动间隔
+        var _s = d.s;  //滚动间隔
 
 
-    
+        _con.clone().insertAfter(_con);//初始化克隆
+
+        //样式控制
+        var num = d.num;
+        var _p = this.find('li');
+        var allNum = _p.length;
+
+        _p.eq(num).addClass(_s);
+
+
+        var timeID = setInterval(Up,_time);
+		this.hover(function(){clearInterval(timeID)},function(){timeID = setInterval(Up,_time);});
+
+        function Up(){
+            _con.animate({marginTop: '-'+_conChildH});
+            //样式控制
+            _p.removeClass(_s);
+            num += 1;
+            _p.eq(num).addClass(_s);
+            
+            if(_conH == _conChildH){
+                _con.animate({marginTop: '-'+_conChildH},"normal",over);
+            } else {
+                _conChildH += _temp;
+            }
+        }
+        function over(){
+            _con.attr("style",'margin-top:0');
+            _conChildH = _temp;
+            num = 1;
+            _p.removeClass(_s);
+            _p.eq(num).addClass(_s);
+        }
+    }
+})(jQuery);
+
+$('#FontScroll').FontScroll({time: 1000,num: 1});
+
 </script>
 </div>
 </div>
