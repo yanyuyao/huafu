@@ -432,9 +432,8 @@
 				<div>
 					<div class="nav4-content-bt">运费：</div>
 					<div class="nav4-right" id="dd-you">
-						<select name="shipping">
-							<option value="0">包邮</option>
-							<option value="200">运费200</option>
+						<select name="shipping" id="shipping">
+							<option value="delivery">包邮</option>
 						</select>
 					</div>
 					<div style="clear:both;"></div>
@@ -442,7 +441,7 @@
 				<div>
 					<div class="nav4-content-bt">服务：</div>
 					<div class="nav4-right" id="dd-service">
-						<select name="serviceprice">
+						<select name="serviceprice" id="serviceprice">
 							<option value="200">上门安装（服务费200元）</option>
 							<option value="0">无服务</option>
 						</select>
@@ -498,11 +497,11 @@
 				<div>
 					<div class="nav4-content-bt">备注：</div>
 					<div class="nav4-right">
-						<textarea placeholder="请输入备注" name="note"></textarea>
+						<textarea placeholder="请输入备注" name="note" id="note"></textarea>
 					</div>
 					<div style="clear:both;"></div>
 				</div>
-				<div class="total">价格：￥0</div>
+				<!--<div class="total" >价格：￥<i id="totalprice">0</i></div>-->
 				<div id="dd-message"></div>
 				<div class="nav2">
 					<input id="submit" type="button" value="提交订单" onclick='buy()'>
@@ -519,43 +518,43 @@
 					<ul>
 						<li>
 							<div>最新购买</div>
-							李**（158****2345）在13小时前购买了  1个红古铜色 无线指纹密码锁
+							王**（152****7865）在13小时前购买了  1个红古铜色 无线指纹密码锁
 						</li>
 						<li>
 							<div>最新购买</div>
-							李**（158****2345）在13小时前购买了  1个红古铜色 无线指纹密码锁
+							赵**（152****3352）在11小时前购买了  2个红古铜色 无线指纹密码锁
 						</li>
 						<li>
 							<div>最新购买</div>
-							李**（158****2345）在13小时前购买了  1个红古铜色 无线指纹密码锁
+							李**（158****4765）在9小时前购买了  1个红古铜色 无线指纹密码锁
 						</li>
 						<li>
 							<div>最新购买</div>
-							李**（158****2345）在13小时前购买了  1个红古铜色 无线指纹密码锁
+							孙**（159****6432）在20小时前购买了  1个红古铜色 无线指纹密码锁
 						</li>
 						<li>
 							<div>最新购买</div>
-							李**（158****2345）在13小时前购买了  1个红古铜色 无线指纹密码锁
+							王**（158****3567）在12小时前购买了  1个红古铜色 无线指纹密码锁
 						</li>
 						<li>
 							<div>最新购买</div>
-							李**（158****2345）在13小时前购买了  1个红古铜色 无线指纹密码锁
+							钱**（153****6875）在7小时前购买了  1个红古铜色 无线指纹密码锁
 						</li>
 						<li>
 							<div>最新购买</div>
-							李**（158****2345）在13小时前购买了  1个红古铜色 无线指纹密码锁
+							雷**（156****7876）在6小时前购买了  1个红古铜色 无线指纹密码锁
 						</li>
 						<li>
 							<div>最新购买</div>
-							李**（158****2345）在13小时前购买了  1个红古铜色 无线指纹密码锁
+							姚**（153****2332）在9小时前购买了  1个红古铜色 无线指纹密码锁
 						</li>
 						<li>
 							<div>最新购买</div>
-							李**（158****2345）在13小时前购买了  1个红古铜色 无线指纹密码锁
+							幸**（152****2321）在4小时前购买了  1个红古铜色 无线指纹密码锁
 						</li>
 						<li>
 							<div>最新购买</div>
-							李**（158****2345）在13小时前购买了  1个红古铜色 无线指纹密码锁
+							嘉**（158****1232）在9小时前购买了  1个红古铜色 无线指纹密码锁
 						</li>
 					</ul>
 				</div>
@@ -754,13 +753,49 @@ function buy(){
             return;
         	
         }
-         	<!--@php  } @-->
+         <!--@php  } @-->
+     
+    if($('#dd-name').val() == ''){
+        tip("姓名不能为空",true);
+        return;
+    } 
+    if($('#dd-tel').val() == ''){
+        tip("联系方式不能为空",true);
+        return;
+    } 
+    if($('#sel-provance').val() == ''){
+        tip("请选择地址",true);
+        return;
+    } 
+    if($('#sel-city').val() == ''){
+        tip("请选择地址",true);
+        return;
+    } 
+    if($('#sel-area').val() == ''){
+        tip("请选择地址",true);
+        return;
+    } 
+    if($('#dd-addrall').val() == ''){
+        tip("请填写详细地址",true);
+        return;
+    } 
+    
      var total = $("#total").val();
-     location.href = '<!--@php  echo mobile_url('confirm',array('id'=>$goods['id']),true);@-->'+"&optionid=" + $("#optionid").val() + "&total=" + total;
+     var parm_str = "&optionid=" + $("#optionid").val() + "&total=" + total+"&serviceprice=1";
+     parm_str += "&shipping="+$('#shipping').val();
+     parm_str += "&serviceprice="+$('#serviceprice').val();
+     parm_str += "&realname="+$('#dd-name').val();
+     parm_str += "&tel="+$('#dd-tel').val();
+     parm_str += "&provance="+$('#sel-provance').val();
+     parm_str += "&city="+$('#sel-city').val();
+     parm_str += "&area="+$('#sel-area').val();
+     parm_str += "&address="+$('#dd-addrall').val();
+     parm_str += "&remark="+$('#note').val();
+     location.href = '<!--@php  echo mobile_url('confirmpp',array('id'=>$goods['id']),true);@-->'+parm_str;
 }
 //添加到购物车
 function addtocart(){
-    var ret = option_selected();
+        var ret = option_selected();
         if(ret.no!=''){
            tip("请选择" + ret.no + "!",true);
             return;
@@ -814,8 +849,8 @@ function option_selected(){
 <script type="text/javascript" src="__RESOURCE__/recouse/js/cascade.js?x=14"></script>
 
 <script>
-    cascdeInit('__RESOURCE__/recouse/js','','','');
-	//底部文字滚动
+cascdeInit('__RESOURCE__/recouse/js','','','');
+//底部文字滚动
 (function($){
     $.fn.FontScroll = function(options){
         var d = {time: 3000,s: 'fontColor',num: 1}

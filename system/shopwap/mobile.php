@@ -10,7 +10,10 @@ class shopwapAddons extends BjSystemModule {
         //单页推广
         $this->__mobile(__FUNCTION__);
     }
-
+    public function do_confirmpp() {
+        //单页推广提交订单
+        $this->__mobile(__FUNCTION__);
+    }
     public function do_outchargegold() {
         $this->__mobile(__FUNCTION__);
     }
