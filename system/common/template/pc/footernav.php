@@ -1,7 +1,7 @@
 <!--底部公用-->
-	    <div class="footer">
-	    	<div class="footer_b w1200"><img src="<?php echo THEMES_KUAILEGOU_ROOT;?>/__RESOURCE__/pc/image/foot_img1.jpg"/></div>
-	    	<div class="footer_help w1200">
+<div class="footer" style="padding-bottom: 0px;">
+	    	<div class="footer_b w1200" style="border-botttom:none;"><img src="<?php echo THEMES_KUAILEGOU_ROOT;?>/__RESOURCE__/pc/image/foot_img1.jpg?v=1"/></div>
+<!--	    	<div class="footer_help w1200">
 	    		<div class="footer1_l">
 	    			<dl class="helpDl">
 	    				<dt><h5>使用帮助</h5></dt>
@@ -40,24 +40,24 @@
 	    		<div class="footer1_r">
 	    			<ul>
 	    				<li>
-	    					<h2>手机快乐购</h2>
-	    					<img src="<?php echo THEMES_KUAILEGOU_ROOT;?>/__RESOURCE__/pc/image/footer_ewm_01.png"/>
-	    					<p>下载移动客户端</p>
+	    					<h2>官网</h2>
+	    					<img src="<?php echo THEMES_KUAILEGOU_ROOT;?>/__RESOURCE__/pc/image/footer_ewm_01.png?v=1" style="width:100px;" />
+	    					<p></p>
 	    				</li>
 	    				<li>
-	    					<h2>快乐购微信</h2>
-	    					<img src="<?php echo THEMES_KUAILEGOU_ROOT;?>/__RESOURCE__/pc/image/footer_ewm_02.png"/>
-                            <p>快乐购官方微信</p>
+	    					<h2>客服</h2>
+	    					<img src="<?php echo THEMES_KUAILEGOU_ROOT;?>/__RESOURCE__/pc/image/footer_ewm_02.png?v=1" style="width:100px;" />
+                                                <p></p>
 	    				</li>
 	    			</ul>
 	    		</div>
-	    	</div>
+	    	</div>-->
                 <div style="clear:both;"></div>
-	        <div class="footer_nav">
+<!--	        <div class="footer_nav">
 	        	<div class="w720">
 	        		<ul>
 	        			<li>
-	        				<a href="">关于快乐购 </a>
+	        				<a href="">关于 </a>
 	        				<span class="line"></span>
 	        			</li>
 	        			<li>
@@ -74,24 +74,25 @@
 	        			</li>
 	        		</ul>
 	        	</div>
-	        </div>
+	        </div>-->
                 <div style="clear:both;"></div>
 	        <div class="footer_bottom">
-	        	<div class="w1200">
-	        		<p>
-	        			<span class="font_arial">Copyright© 2006-2016 happigo. All Rights Reserved </span>
-                                           免费服务热线: 400-705-1111 | 固话也可拨打: 800-705-1111
-                        <span class="font_arial">E-Mail: service@happigo.com</span><br>
-                                           湘ICP备12000157号 信息网络传播视听节目许可证号：1810530
+	        	<div class="w1200" style="padding:10px 0px 20px 0px">
+	        		<p style="width:60%;float:left;display:block;">
+                                            <span class="font_arial">Copyright© 2017-2018 深圳市华府智能科技有限公司 </span>
+                                                <br>服务热线: 075527267551 | QQ: 236245881<br>
+                                            <span class="font_arial">E-Mail: 236245881@qq.com</span><br>
+                                            备案号：11111111
 	        		</p> 
-	        		<p class="footer_b">
-	        			<a href="http://www.itrust.org.cn/home/index/itrust_certifi/wm/2782875193.html">
-	        				<img src="<?php echo THEMES_KUAILEGOU_ROOT;?>/__RESOURCE__/pc/image/foot_img3.png"/>
+	        		<p class="footer_b" style="width:35%;float:left;display:block;border-bottom: none;">
+	        			<a href="javascript:;">
+	        				<img src="<?php echo THEMES_KUAILEGOU_ROOT;?>/__RESOURCE__/pc/image/footer_ewm_01.png?v=1" style="width:100px;" />
 	        			</a>
-	        			<a href="https://search.szfw.org/cert/l/CX20150428007576007720">
-	        				<img src="<?php echo THEMES_KUAILEGOU_ROOT;?>/__RESOURCE__/pc/image/foot_img4.png"/>
+	        			<a href="javascript:;">
+	        				<img src="<?php echo THEMES_KUAILEGOU_ROOT;?>/__RESOURCE__/pc/image/footer_ewm_02.png?v=1" style="width:100px;" />
 	        			</a>
 	        		</p>
+                                <div style="clear:both;"></div>
 	        	</div>
 	        </div>
 	    </div>
