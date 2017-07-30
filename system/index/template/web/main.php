@@ -61,14 +61,8 @@
 
 <div class="navbar-header pull-right" role="navigation">
 <ul class="nav ace-nav" style="height:45px">
-	<li class="Larger">
-    <a class="dropdown-toggle"  href="http://bbs.baijiacms.com" target="_blank">
-        <i class="icon-globe"></i>
-        <span>官方论坛</span>
-    </a> 
-</li>
 <li class="Larger">
-    <a class="dropdown-toggle"  href="<?php  echo WEBSITE_ROOT.'index.php';?>" target="_blank">
+    <a class="dropdown-toggle"  href="<?php  echo WEBSITE_ROOT.'pc.php';?>" target="_blank">
         <i class="icon-mobile-phone"></i>
         <span>商城首页</span>
     </a> 
@@ -254,7 +248,7 @@
                               
                               
                                     
-                                         <?php if (in_array("bonus-bonus",$menurule)) { ?>  
+                     <?php if (0 && in_array("bonus-bonus",$menurule)) { ?>  
                                  <li>
                     <a href="#" class="dropdown-toggle">
                         <i class="icon-gift"></i>
@@ -279,68 +273,7 @@
                                             </ul>
                                     </li>
                                        <?php }?>
-                                    
-                                    
-                         <li>
-                    <!-- 导航第一级 -->
-                    <a href="#" class="dropdown-toggle">
-                        <i class="icon-gift"></i>
-                        <span class="menu-text"> 互相营销管理 </span>
-
-                        <b class="arrow icon-angle-down"></b>
-                    </a>
-                    
-                    <ul class="submenu">
-                                       <?php $showdownload=true; if(is_array($modulelist)) { foreach($modulelist as $module) { 
-                                   	if($module['icon']=='yingxiao'||$module['name']=='addon2'||$module['name']=='addon3'||$module['name']=='addon4'||$module['name']=='addon10'||$module['name']=='addon12'||$module['name']=='addon13'||$module['name']=='addon14'||$module['name']=='addon15'){
-                                   	$showdownload=false;	?>
-                                   		
-                                   		
-                                   		  <li class="open">
-                    <!-- 导航第一级 -->
-                    <a href="#" class="dropdown-toggle">
-                        <span class="menu-text"> <?php  echo $module['title'] ?></span>
-
-                        <b class="arrow icon-angle-down"></b>
-                    </a>
-                    
-                    <ul class="submenu">
-                                           
-                                             <?php  foreach($module['menus'] as $menu) { ?>
-  
-                                       <li>
-                                          <a href="<?php  echo $menu['href'] ?>" target="main" >                              
-                                        <i class="icon-double-angle-right"></i>
-                                        <?php  echo $menu['title'] ?>                                    
-                                    </a>
-                                </li>
-                                               
-                                               
-                                            <?php  } ?>  
-                                                        </ul>
-                                                    </li>
-                        
-                                
-                                   		
-                                   		<?php
-                                   	}}}?>     
-                                   	
-                                   	
-                                             <?php  if($showdownload) { ?>
-                                   	      <li>
-                                   	      	   <a onclick="navtoggle('互相营销管理 - > 点击下载互动插件')" href="http://addons.baijiacms.com/" target="_blank" >     
-                                         <i class="icon-double-angle-right"></i>
-                                        	点击下载互动插件                             
-                                    </a>
-                                </li>
-                                
-                                            <?php  } ?>  
-                                         </ul>
-														
-								                  </li>
-								                  
-								                  
-								                  
+                                      
                                      
              <?php if (in_array("shop-config",$menurule)||in_array("shop-adv",$menurule)||in_array("shop-themes",$menurule)||in_array("shop-payment",$menurule)||in_array("shop-thirdlogin",$menurule)||in_array("shop-dispatch",$menurule)) { ?>  
                           
@@ -478,7 +411,7 @@
                        
                        
                        
-                       <?php if (in_array("alipay-alipay",$menurule)) { ?>          
+                       <?php if (0&& in_array("alipay-alipay",$menurule)) { ?>          
                       <li>
                     <a href="#" class="dropdown-toggle">
                         <i class="icon-star"></i>
@@ -531,9 +464,11 @@
                               
                                    <?php $baijia_addons=array('addon6'=>array('title'=>'数据报表','icon'=>'icon-bar-chart'),
                                    'addon7'=>array('title'=>'积分兑换','icon'=>'icon-money'),
-                                   'addon8'=>array('title'=>'微文章','icon'=>'icon-edit'),
-                                   'addon9'=>array('title'=>'微单页','icon'=>'icon-list-alt')); if(is_array($modulelist)) { foreach($modulelist as $module) { 
-                                   	if($module['name']=='addon6'||$module['name']=='addon7'||$module['name']=='addon8'||$module['name']=='addon9')
+                                  // 'addon8'=>array('title'=>'微文章','icon'=>'icon-edit'),
+                                  // 'addon9'=>array('title'=>'微单页','icon'=>'icon-list-alt')
+                                  ); 
+                                  if(is_array($modulelist)) { foreach($modulelist as $module) { 
+                                   	if($module['name']=='addon6'||$module['name']=='addon7')
                                    	{
                                    		$baijia_addons[$module['name']]='';
                                    	?>
@@ -577,15 +512,7 @@
                         <b class="arrow icon-angle-down"></b>
                     </a>
                     
-                    <ul class="submenu">
-                                           
-                                          <li>
-                                   	      	   <a onclick="navtoggle('互相营销管理 - > 点击下载互动插件')" href="http://addons.baijiacms.com/" target="_blank" >     
-                                         <i class="icon-double-angle-right"></i>
-                                        	点击下载互动插件                             
-                                    </a>
-                                </li>
-                                                        </ul>
+                   
                                                     </li>
                            <?php  }  }}
                      
@@ -667,37 +594,7 @@
                                     
                                     
                                       <?php if (in_array("modules-update",$menurule)) { ?> 
-                                          <li>
-                    <!-- 导航第一级 -->
-                    <a href="#" class="dropdown-toggle">
-                        <i class="icon-cloud"></i>
-                        <span class="menu-text">云服务</span>
-
-                        <b class="arrow icon-angle-down"></b>
-                    </a>
-                    
-                    <ul class="submenu">
-                                           
-                                                 <li>
-                                          <a onclick="navtoggle('系统管理 - > 系统升级')" href="<?php  echo create_url('site', array('name' => 'modules','do' => 'update'))?>" target="main" >                              
-                                        <i class="icon-double-angle-right"></i>
-                                        系统升级                                      
-                                    </a>
-                                </li>
-                                    <!--  <li>
-                                          <a onclick="navtoggle('系统管理 - > 插件扩展')" href="http://addons.baijiacms.com/" target="_blank" >                              
-                                        <i class="icon-double-angle-right"></i>
-                                        插件扩展                                      
-                                    </a>
-                                </li>  -->   <li>
-                                          <a onclick="navtoggle('系统管理 - > 插件扩展')" href="<?php  echo create_url('site', array('name' => 'modules','do' => 'modules'))?>" target="main" >                              
-                                        <i class="icon-double-angle-right"></i>
-                                        插件扩展                                      
-                                    </a>
-                                </li>
-                                                          
-                                                        </ul>
-                                                    </li>
+                                         
                                           <?php }?>
                 
             </ul>
