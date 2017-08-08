@@ -4,10 +4,10 @@
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<title><?php  echo empty($settings['shop_title'])?'百家CMS开源版':$settings['shop_title'];?></title>
+		<title><?php  echo empty($settings['shop_title'])?'开源版':$settings['shop_title'];?></title>
 		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-		<meta name="description" content="<?php  echo empty($settings['shop_description'])?'百家CMS开源版':$settings['shop_description'];?>" />
-		<meta name="keywords" content="<?php  echo empty($settings['shop_keyword'])?'百家CMS开源版':$settings['shop_keyword'];?>">
+		<meta name="description" content="<?php  echo empty($settings['shop_description'])?'开源版':$settings['shop_description'];?>" />
+		<meta name="keywords" content="<?php  echo empty($settings['shop_keyword'])?'开源版':$settings['shop_keyword'];?>">
      <link href="<?php echo RESOURCE_ROOT;?>/addons/common/bootstrap3/css/bootstrap.min.css" rel="stylesheet" />
     <link type="text/css" rel="stylesheet" href="<?php echo RESOURCE_ROOT;?>/addons/common/fontawesome3/css/font-awesome.min.css" />
     <script type="text/javascript" src="<?php echo RESOURCE_ROOT;?>/addons/common/js/jquery-1.10.2.min.js"></script>
@@ -54,7 +54,7 @@
     <a href="#" class="navbar-brand">
         <small>
             <i class="icon-leaf"></i>
-            <span id='accountname'><?php  echo empty($settings['shop_title'])?'百家CMS开源版':$settings['shop_title'];?></span>
+            <span id='accountname'><?php  echo empty($settings['shop_title'])?'开源版':$settings['shop_title'];?></span>
         </small>
     </a><!-- /.brand -->
 </div><!-- /.navbar-header -->
@@ -337,11 +337,13 @@
                                   <li> <a onclick="navtoggle('商城配置 - > 支付方式')" href="<?php  echo create_url('site', array('name' => 'modules','do' => 'payment','op'=>'list'))?>" target="main">
                                     <i class="icon-double-angle-right"></i>
                                     支付方式                                  
-                                </a>   </li><?php }?>  <?php if (in_array("modules-thirdlogin",$menurule)) { ?> 
+                                </a>   </li><?php }?>  
+								<?php if (0&&in_array("modules-thirdlogin",$menurule)) { ?> 
                                     <li> <a onclick="navtoggle('商城配置 - > 快捷登录')" href="<?php  echo create_url('site', array('name' => 'modules','do' => 'thirdlogin'))?>" target="main">
                                     <i class="icon-double-angle-right"></i>
                                     快捷登录                                  
-                                </a>   </li><?php }?> 
+                                </a>   </li>
+								<?php }?> 
                                
                                   <?php if (in_array("shop-dispatch",$menurule)) { ?> 
                                   <li> <a onclick="navtoggle('模块 - > 配送方式')" href="<?php  echo create_url('site', array('name' => 'modules','do' => 'dispatch','op'=>'display'))?>" target="main">

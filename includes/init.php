@@ -15,7 +15,8 @@ if(file_exists(WEB_ROOT.'/config/debug.php'))
 {
 	require WEB_ROOT.'/config/debug.php';
 }
-define('SAPP_NAME', '百家CMS');
+//define('SAPP_NAME', '百家CMS');
+define('SAPP_NAME', '华域');
 define('CORE_VERSION', 20151019);
 defined('SYSTEM_VERSION') or define('SYSTEM_VERSION', CORE_VERSION);
 header('Content-type: text/html; charset=UTF-8');

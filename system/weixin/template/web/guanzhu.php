@@ -16,7 +16,7 @@
 										<div class="col-sm-9">
 										     <input type="text" name="weixin_guanzhu"  class="col-xs-10 col-sm-4" placeholder="请输入微信公众平台的图文素材地址"  value="<?php  echo $settings['weixin_guanzhu'];?>" />
 										
-										   &nbsp;&nbsp;&nbsp; <a href="http://bbs.baijiacms.com/thread-87-1-1.html " target="_blank" style="font-size:16px"><strong>设置教程</strong></a>	  <br/>
+										    <br/>
 										</div>
 									</div>
 									

@@ -230,7 +230,7 @@ $(function () {
 		        </div>
 		        <div class="latest-notice">
 		            <dl>
-		                <dt><span class="title">最新通知</span> <a class="more" target="_blank" href="http://bbs.baijiacms.com/">更多&gt;</a></dt>
+		                <dt><span class="title">最新通知</span></dt>
 		               <dd style="height: 250px;padding-left: 0px;margin-left: 0px;line-height: 0px;">
 		                 <iframe width="100%" scrolling="no" height="100%" style="height: 250px;" frameborder="0" src="http://m.baijiacms.com/notice.php"></iframe>
 </dd>

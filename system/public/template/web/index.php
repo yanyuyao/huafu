@@ -41,7 +41,7 @@
 				   </div>
 			 
 		</div>
-		<p class="copyright"> <a href="http://bbs.baijiacms.com" target="_blank">&copy;百家cms微商城</a> </p>
+		<p class="copyright"> <a href="javascript:;" target="_blank">&copy;华域网络科技</a> </p>
 	</div>
 	<!-- end login -->
    </form>
