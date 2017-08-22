@@ -65,7 +65,7 @@ function get_weixin_token($refresh=false) {
 			message('获取微信公众号授权失败, 请稍后重试！ 公众平台返回原始数据为:' . $token);
 		}
 		if(empty($token['access_token']) || empty($token['expires_in'])) {
-			message('解析微信公众号授权失败, 请稍后重试！');
+			message('解析微信公众号授权失败, 请稍后重试！'.$content);
 		}
 		$record = array();
 		$record['token'] = $token['access_token'];
@@ -114,7 +114,7 @@ function xoauth($appid,$secret) {
 		    $content = http_get($oauth2_code);
 		    $token = @json_decode($content, true);
 			if(empty($token) || !is_array($token) || empty($token['access_token']) || empty($token['openid'])) {
-				message('获取微信公众号授权失败，公众平台返回原始数据为:'. $content['meta']) ;
+				message('获取微信公众号授权失败，公众平台返回原始数据为:'. $content) ;
 				exit;
 			}
 		    $from_user = $token['openid'];
