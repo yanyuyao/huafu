@@ -1,3 +1,4 @@
+<option value="baoyou" data-name="包邮">包邮</option>
 <option value="shunfeng" data-name="顺丰">顺丰</option>
 <option value="shentong" data-name="申通">申通</option>
 <option value="yunda" data-name="韵达快运">韵达快运</option>

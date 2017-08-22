@@ -5,7 +5,7 @@
 										<label class="col-sm-2 control-label no-padding-left" > 支付方式名称：</label>
 
 										<div class="col-sm-9">
-													微信支付&nbsp;&nbsp;<a target="_blank" href="http://bbs.baijiacms.com/forum-36-1.html ">配置帮助</a>
+													微信支付
 												
 										</div>
 									</div>

@@ -1,4 +1,6 @@
-<?php $expressarray=array("shunfeng"=>"顺丰"
+<?php $expressarray=array(
+"baoyou"=>"包邮"
+,"shunfeng"=>"顺丰"
 ,"shentong"=>"申通"
 ,"yunda"=>"韵达快运"
 ,"tiantian"=>"天天快递"

@@ -34,12 +34,12 @@
 	        		<div class="ewm_tc">
                     <div class="ewm_tc_bg">
                         <div class="down_app_icon"></div>
-                        <img src="<?php echo THEMES_KUAILEGOU_ROOT;?>/__RESOURCE__/pc/image/down_app_ewm.png">
+                        <img src="<?php echo THEMES_KUAILEGOU_ROOT;?>/__RESOURCE__/pc/image/down_app_ewm.png?v=1">
                     </div>
 	        		</div>
 	        	</div>
 	        	<div class="f_ke">
-	        		<i class="online_cus"></i>
+	        		<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=236245881&amp;site=qq&amp;menu=yes" alt="点击这里给我发消息" title="点击这里给我发消息"><i class="online_cus"></i></a>
 	        	</div>
 	        	<div class="top_is">
 	    		    <a href="javascipt:;">

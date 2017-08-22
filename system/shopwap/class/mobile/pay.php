@@ -56,6 +56,11 @@
          	$paytype=$this->getPaytypebycode($paytypecode);
          	mysqld_update('shop_order', array('paytypecode'=>$payment['code'],'paytypename'=>$payment['name'],'paytype'=>$paytype),array('id'=>$orderid));
          }
-         
+if($_GET['ispp'] && $paytypecode == 'delivery'){
+    //echo 'ispp success';
+    include themePage('confirm_order');
+    exit;
+}else{
     	require(WEB_ROOT.'/system/modules/plugin/payment/'.$paytypecode.'/payaction.php'); 
     	exit;
+}        

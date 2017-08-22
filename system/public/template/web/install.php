@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"> 
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>百家CMS安装程序</title>
+<title>安装程序</title>
 <link href="<?php echo RESOURCE_ROOT;?>/addons/modules/install.css?x=20150530_1" rel="stylesheet" />
 </head>
 <body>
@@ -14,8 +14,8 @@
   <tr>
     <td>
 	<div class="pact">
-            <p>百家cms微商城遵循Apache2开源协议发布，并提供免费使用。</p>
-            <p>百家CMS（微商城） 商标和著作权所有者为福州百家威信信息技术有限责任公司</p>
+            <p>遵循Apache2开源协议发布，并提供免费使用。</p>
+            <p>微商城） 商标和著作权所有者为福州百家威信信息技术有限责任公司</p>
             <p>Apache Licence是著名的非盈利开源组织Apache采用的协议。</p>
             <p>该协议和BSD类似，鼓励代码共享和尊重原作者的著作权，允许代码修改，再作为开源或商业软件发布。</p>
             <h4><strong>需要满足的条件： </strong></h4>
@@ -112,7 +112,7 @@
 <form id="form1" name="form1" method="post" >
   <table width="700" border="0" align="center" cellpadding="0" cellspacing="0"  class="twbox">
     <tr>
-      <td colspan="2" align="center">百家CMS 正式版-系统安装-请仔细阅读说明,然后进行安装</td>
+      <td colspan="2" align="center">正式版-系统安装-请仔细阅读说明,然后进行安装</td>
     </tr>
 
 	

@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title><!--@php  echo $goods['title'];@-->|深圳市华府智能科技有限公司</title>
+    <!--<meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,user-scalable=no">-->
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <link rel='stylesheet' type='text/css' href='__RESOURCE__/recouse/css/bjdetail.css'/>
+    <link href="__RESOURCE__/recouse/css/reset.css" rel="stylesheet" type="text/css"/>
+    <link href="__RESOURCE__/recouse/css/bjcommon.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="__RESOURCE__/recouse/js/jquery-1.7.2.min.js"></script>
+    <script src="__RESOURCE__/recouse/js/jquery.json.js" type="text/javascript"></script>
+    <script type="text/javascript" src="__RESOURCE__/recouse/js/common.js"></script>
+    <script type="text/javascript" src="__RESOURCE__/recouse/js/transport.js"></script>
+    <script type="text/javascript" src="__RESOURCE__/recouse/js/utils.js"></script>
+    
+    <link href="__RESOURCE__/ppromotion/css/mui.min.css" rel="stylesheet"/>
+<!--    <link href="__RESOURCE__/ppromotion/css/mui.picker.css" rel="stylesheet">
+    <link href="__RESOURCE__/ppromotion/css/mui.poppicker.css" rel="stylesheet">-->
+    <link href="__RESOURCE__/ppromotion/css/style.css" rel="stylesheet"/>
+    
+    <style>
+
+        .tabBox .hd {
+            height: 40px;
+            line-height: 40px;
+            font-size: 16px;
+            overflow: hidden;
+            background: #ffffff;
+            padding-bottom: 5px;
+        }
+
+        .tabBox .hd ul li {
+            float: left;
+            width: 50%;
+            vertical-align: top;
+            text-align: center;
+        }
+
+        .tabBox .hd ul li.on a {
+            color: #B63B34;
+            display: block;
+            height: 38px;
+            line-height: 38px;
+            border-bottom: 2px solid #B63B34;
+            text-align: center;
+        }
+
+        .tabBox .bd .con {
+            background: #ffffff;
+        }
+
+        .tabBox .bd li img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+        }
+.detail-group .current {
+    background: #23AFE7;
+    color: #fff;
+    border: 1px solid #23AFE7;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+}
+.detail-group .property.current{
+    color:#fff;
+}
+.detail-group .property {
+    border: 1px solid #23AFE7;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    color:#000;
+}
+.nav4-right input,.nav4-right textarea{
+    width:100%;
+    padding:0px;
+}
+.nav4-right select{
+    width:100%;
+}
+.nav4-right{
+    width:70%;
+    float:left;
+    margin-bottom: 18px;
+}
+.nav4-content-bt{
+    width:20%;
+    margin-left:10px;
+    float:left;
+}
+.jx-price,.jx-pricem,.name{
+    color:#000;
+}
+.nav5-content ul li{
+    line-height: 28px;
+    margin:0px;
+}
+
+#FontScroll .ldiv{
+    width:30%;float:left;
+}
+#FontScroll .rdiv{
+    width:60%;float:left;
+}
+    </style>
+  
+</head>
+<body style=" margin:0 auto;">
+<div class="mui-content" style="background-color: #fff;">
+ 
+<div class="main">
+
+
+    <section class="sp">
+        <div class="product-intro">
+
+            <div id="cont_show">
+                <script type="text/javascript" src="__RESOURCE__/recouse/js/jquery.flexslider-min.js"></script>
+                <script type="text/javascript">
+                    $(function () {
+                        $('.flexslider').flexslider({
+                            animation: "slide",
+                            slideDirection: "horizontal"
+                        });
+                        $("#btn_continue").click(function () {
+                            $("#buy_lay").hide();
+                            $("#buy_lay_frm").hide();
+                        });
+                        $("#btn_check").click(function () {
+                            window.location = 'cart.php';
+                        });
+                        $(document).bind("click", function () {
+                            $("#buy_lay").hide();
+                            $("#buy_lay_frm").hide();
+                        });
+                    });
+                </script>
+                <script type="text/javascript">
+                    var $$ = function (obj) {
+                        if (obj != null && obj != undefined && obj.toString().length > 0) {
+                            if (obj[0] == '#') {
+                                return document.getElementById(obj.substr(1, obj.length - 1));
+                            }
+                        }
+                    }
+                    function chgNum(a) {
+                        var number = $$("#total");
+                        var p = parseInt(number.value);
+                        if (a == 1) {
+                            if (p < 1038) number.value = ++p;
+                        }
+                        else {
+                            if (p > 1) number.value = --p;
+                        }
+                    }
+                </script>
+                <link href="__RESOURCE__/recouse/css/flexslider.css" rel="stylesheet" type="text/css"/>
+                <div id="viewport" class="viewport">
+
+                    <div class="show">
+                        <div class="slider card card-nomb" style="visibility: visible;">
+                            <script type="text/javascript" src="__RESOURCE__/recouse/js/TouchSlide.1.1.js"></script>
+                            <div id="focus" class="focus">
+                                <div class="hd">
+                                    <ul>
+                                    </ul>
+                                </div>
+                                <div class="bd">
+                                    <ul>
+                                        <!--@php  if(is_array($piclist)) { foreach($piclist as $row) { @-->
+                                        <li><img
+                                                src="<!--@php echo WEBSITE_ROOT;@-->/attachment/<!--@php  echo $row['attachment'];@-->"/>
+                                        </li>
+                                        <!--@php  } } @-->
+                                    </ul>
+                                </div>
+                            </div>
+                            <script type="text/javascript">
+                                TouchSlide({
+                                    slideCell: "#focus",
+                                    titCell: ".hd ul", //开启自动分页 autoPage:true ，此时设置 titCell 为导航元素包裹层
+                                    mainCell: ".bd ul",
+                                    delayTime: 600,
+                                    interTime: 4000,
+                                    effect: "leftLoop",
+                                    autoPlay: true,//自动播放
+                                    autoPage: true, //自动分页
+                                    switchLoad: "_src" //切换加载，真实图片路径为"_src"
+                                });
+                            </script>
+                            <!-- banner轮播End -->
+                        </div>
+                    </div>
+                </div>
+<div class="nav1" style="padding:0px;">
+    <div class="nav1-bt" style="padding:10px;width:auto;">
+            <!--@php  echo $goods['title'];@--> 
+    </div>
+    <div class="nav1-price">
+            <div class="nav1-xian" style="text-align:center;clear:both;width:100%;">
+                    促销价：<span class="nav1-xian-price"><!--@php  echo $marketprice;@--></span>
+            </div>
+            <div class="nav1-yuan" style="text-align:center;clear:both;width:100%;">市场价：<!--@php  echo $productprice;@--></div>
+    </div>
+</div>
+<!--nav1 end-->
+<a href="#buy">
+        <div class="nav2">
+                <input type="button" value="立即购买">
+        </div>
+</a>
+<!--nav2 end-->
+<div class="nav3" style="padding:0px;">
+    <p> <!--@php  echo $goods['description'];@--></p>
+ <div class="viewport">
+        <!-- 商品详情和评价 Start  -->
+        <div id="tabBox1" class="tabBox">
+            <div class="bd" id="tabBox1-bd"><!-- 添加id，js用到 -->
+                <div class="con"><!-- 高度自适应需添加外层 -->
+                    <ul>
+                        <li>
+                            <!--@php  echo $goods['content'];@-->
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            TouchSlide({
+                slideCell: "#tabBox1",
+
+                endFun: function (i) { //高度自适应
+                    var bd = document.getElementById("tabBox1-bd");
+                    bd.parentNode.style.height = bd.children[i].children[0].offsetHeight + "px";
+                    if (i > 0)bd.parentNode.style.transition = "200ms";//添加动画效果
+                }
+
+            });</script>
+        <!--商品详情和评价 End  -->
+
+    </div>
+</div>   
+<!--nav3 图文详情 end-->
+<form action="javascript:addToCart(6)" method="post" name="ECS_FORMBUY" id="ECS_FORMBUY">
+<div class="nav4" name="buy" id="buy" style="padding:0px;">
+			<div class="nav4-bt">订单信息</div>
+			<div class="nav4-content" style="padding:0px;margin:10px 0px;">
+                            <!-- {{{ detail product items -->
+                            <div class="pro-info">
+                                                                                    <p class="pro-name" style="height:auto;margin:0px;padding:10px;background:none;color:#23AFE7;"><strong style="color:#23AFE7;"><!--@php  echo $goods['title'];@--></strong></br></p>
+
+
+                                                                                    <div class="price clearfix">
+                                                                                        <p class="jx-price">价&nbsp;&nbsp;&nbsp;格<strong style=" padding-left:15px" id="marketprice">￥
+                                                                                            <!--@php  echo $marketprice;@--> </strong><!--@php  if($goods['issendfree']==1) { @--><span><img
+                                                                                                src="__RESOURCE__/recouse/images/baoyou.png"></span><!--@php  } @--></p>
+
+
+                                                                                    </div>
+                                                                                    <!--@php  if($marketprice < $productprice) { @-->
+                                                                                    <div class="price clearfix">
+                                                                                        <p class="jx-pricem">市场价<strong style=" padding-left:15px;color:#BEBEBE" id="productprice">￥
+                                                                                            <!--@php  echo $productprice;@--></strong></p>
+                                                                                    </div>
+
+
+<!--                                                                                    <div class="goods_number clearfix">
+                                                                                        <p class="name">货&nbsp;&nbsp;&nbsp;号</p>
+                                                                                        <strong style=" padding-left:15px;color:#BEBEBE">@php  echo $goods['goodssn'];@</strong>
+                                                                                    </div>-->
+                                                                                    <!--@php  } @-->
+                                                                                    <!--@php  if($goods['istime']==1) { @-->
+                                                                                    <div class="price clearfix">
+                                                                                        <p class="jx-price">倒计时：<strong style=" padding-left:15px;color:#ff0500;font-size: 16px;"><em
+                                                                                                id="time_<!--@php  echo $goods['id'];@-->">
+                                                                                            <!--@php  echo $goods['timelaststr'];@--></em></strong></p>
+                                                                                    </div>
+                                                                                    <script language='javascript'>
+                                                                                        var total_time_<!--@php  echo $goods['id'];@--> = <!--@php  echo $goods['timelast'];@-->;
+                                                                                        var int_time_<!--@php  echo $goods['id'];@--> = setInterval(function () {
+                                                                                            d(<!--@php  echo $goods['id'];@-->);
+                                                                                        }, 1000);
+                                                                                    </script>
+
+                                                                                    <script type="text/javascript">
+
+
+                                                                                        function d(id) {
+                                                                                            eval("total_time_" + id + "--");
+                                                                                            var total_time = eval("total_time_" + id);
+
+                                                                                            var days = parseInt(total_time / 86400)
+
+                                                                                            var remain = parseInt(total_time % 86400);
+                                                                                            var hours = parseInt(remain / 3600)
+                                                                                            var remain = parseInt(remain % 3600);
+
+                                                                                            var mins = parseInt(remain / 60);
+                                                                                            var secs = parseInt(remain % 60);
+
+                                                                                            if (total_time <= 0) {
+                                                                                                $("#time_" + id).html("时间到了");
+                                                                                                var int_time = eval("int_time_" + id);
+                                                                                                window.clearInterval(int_time);
+
+                                                                                            } else {
+
+                                                                                                var ret = "";
+                                                                                                if (days > 0) {
+                                                                                                    days = days + "";
+                                                                                                    if (days.length <= 1) {
+                                                                                                        days = "0" + days;
+                                                                                                    }
+                                                                                                    ret += days + " 天 ";
+                                                                                                }
+                                                                                                if (hours > 0) {
+                                                                                                    hours = hours + "";
+                                                                                                    if (hours.length <= 1) {
+                                                                                                        hours = "0" + hours;
+                                                                                                    }
+                                                                                                    ret += hours + ":";
+                                                                                                }
+                                                                                                if (mins > 0) {
+                                                                                                    mins = mins + "";
+                                                                                                    if (mins.length <= 1) {
+                                                                                                        mins = "0" + mins;
+                                                                                                    }
+                                                                                                    ret += mins + ":";
+                                                                                                }
+
+                                                                                                secs = secs + "";
+                                                                                                if (secs.length <= 1) {
+                                                                                                    secs = "0" + secs;
+                                                                                                }
+                                                                                                ret += secs;
+
+
+                                                                                                $("#time_" + id).html(ret);
+                                                                                            }
+                                                                                        }
+
+                                                                                    </script>
+
+                                                                                    <!--@php  } @-->
+                                                                                    <!--<div class="price clearfix">
+                                                                                    <p class="jx-price">已&nbsp;&nbsp;&nbsp;售:<strong style=" padding-left:15px;color:#BEBEBE; "><!--@php  echo $goods['sales'];@--></strong></p>
+                                                                                </div>
+                                                                                -->
+
+                                                                                <!--@php  if($goods['istime']==1&&$stock!=-1) { @-->
+                                                                                <div class="price clearfix">
+                                                                                    <p class="jx-price">剩&nbsp;&nbsp;&nbsp;余：<strong style=" padding-left:15px;color:#BEBEBE; "
+                                                                                                                                     id="goodstotail">
+                                                                                        <!--@php  echo $stock;@--></strong></p>
+                                                                                </div>
+                                                                                <!--@php  } @-->
+                                                                                <!--
+                                                                                <!--@php  if($member) { @-->
+                                                                                <!--@php  if($member['flag']==1) { @-->
+                                                                                <!--@php  if($commission !=0) { @-->
+                                                                                <div class="price clearfix">
+                                                                                    <p class="jx-price">佣&nbsp;&nbsp;&nbsp;金<strong style=" padding-left:15px">
+                                                                                        <!--@php  echo $commission;@-->%</strong></p>
+
+                                                                                </div>
+                                                                                <!--@php  } @-->
+                                                                                <!--@php  } @-->
+                                                                                <!--@php  } @-->
+                                                                                -->
+
+<div class="goods_number clearfix" style="margin:0px;">
+        <div class="nav4-content-bt">数量：</div>
+        <div class="nav4-right">
+                <div class="mui-numbox" data-numbox-min='1'>
+                        <input type="button" class="mui-btn mui-btn-numbox-minus" value="-" class="btn" onClick="chgNum(-1);"/>
+                        <input type="text" class="mui-input-numbox" id="total" name="number" value="1" class="text"/>
+                        <input type="button" class="mui-btn mui-btn-numbox-plus" value="+" class="btn" onClick="chgNum(1);"/>
+                </div>
+                 <!--@php  if($goods['istime']!=1&&$stock!=-1) { @-->(库存：<strong id="goodstotail"><!--@php  echo $stock;@--></strong>)<!--@php  } @-->
+        </div>
+        <div style="clear:both;"></div>
+</div>
+<!--                                                                                    <div class="goods_number clearfix">
+                                                                                        <p class="name">数&nbsp;&nbsp;&nbsp;量</p>
+
+                                                                                        <div class="addForm">
+                                                                                            <input type="button" value="-" class="btn" onClick="chgNum(-1);"/>
+                                                                                            <input type="text" id="total" name="number" value="1" class="text"/>
+                                                                                            <input type="button" value="+" class="btn" onClick="chgNum(1);"/>
+                                                                                        </div>
+                                                                                    </div>-->
+
+
+                                                                                    <!--@php  if($goods['hasoption']==1) { @-->
+                                                                                    <!--@php  if(is_array($specs)) { foreach($specs as $spec) { @-->
+                                                                                    <input type='hidden' name="optionid[]" class='optionid optionid_<!--@php  echo $spec[' id'];@-->'
+                                                                                    value="" title="<!--@php  echo $spec['title'];@-->">
+                                                                                    <div id='option_group' class='detail-group' style="margin-top:0px;">
+
+                                                                                        <div class="detail-group">
+
+                                                                                            <span style='float:left;padding:0;width:18%;margin-left:10px;'><!--@php  echo $spec['title'];@-->：</span>
+                                                                                            <span style="float:left;margin-left:8px;" class='options options_<!--@php  echo $spec[' id'];@-->'
+                                                                                            specid='<!--@php  echo $spec['id'];@-->'>
+
+                                                                                            <!--@php  if(is_array($spec['items'])) { foreach($spec['items'] as $o) { @-->
+
+                                                                                            <!--@php  if(empty($o['thumb'])) { @-->
+                                                                                            <span class="property option option_<!--@php  echo $spec['id'];@-->"
+                                                                                                  specid='<!--@php  echo $spec[' id'];@-->' oid="<!--@php  echo $o['id'];@-->"
+                                                                                            sel='false'><!--@php  echo $o['title'];@--></span>
+                                                                                            <!--@php  } else { @-->
+                                                                                            <span class="propertyimg optionimg option_img_<!--@php  echo $spec['id'];@--> "
+                                                                                                  oid="<!--@php  echo $o['id'];@-->" specid='<!--@php  echo $spec[' id'];@-->'
+                                                                                            sel='false'><img
+                                                                                                src="<!--@php echo WEBSITE_ROOT;@-->/attachment/<!--@php  echo $_W['attachurl'].$o['thumb']@-->"
+                                                                                                width='50' height='70'/></span>
+                                                                                            <!--@php  } @-->
+
+                                                                                            <!--@php  } } @-->
+                                                                                            </span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <!--@php  } } @-->
+                                                                                    <!--@php  } @-->
+                                                                                
+
+
+                                                                                <input type="hidden" id="optionid" name="optionid" value=""/>
+
+                            <!-- }}} detail product items -->
+
+				<div>
+					<div class="nav4-content-bt">运费：</div>
+					<div class="nav4-right" id="dd-you">
+						<select name="shipping" id="shipping">
+							<option value="delivery">包邮</option>
+						</select>
+					</div>
+					<div style="clear:both;"></div>
+				</div>
+				<div>
+					<div class="nav4-content-bt">服务：</div>
+					<div class="nav4-right" id="dd-service">
+						<select name="serviceprice" id="serviceprice">
+							<option value="200">上门安装（服务费200元）</option>
+							<option value="0">无服务</option>
+						</select>
+					</div>
+					<div style="clear:both;"></div>
+				</div>
+				<div>
+					<div class="nav4-content-bt">姓名：</div>
+					<div class="nav4-right">
+						<input id="dd-name" name="realname" type="text" placeholder="请输入姓名">
+					</div>
+					<div style="clear:both;"></div>
+				</div>
+				<div>
+					<div class="nav4-content-bt">手机：</div>
+					<div class="nav4-right">
+						<input id="dd-tel" type="tel" name="phone" placeholder="请输入手机号" maxlength="11">
+					</div>
+					<div style="clear:both;"></div>
+				</div>
+				<div>
+					<div class="nav4-content-bt">地址：</div>
+					<div class="nav4-right" id="dd-addr">
+						<!--<input id='showCityPicker3' class="mui-btn mui-btn-block" type='button' value="选择省市区"></input>-->
+
+                                                <select id="sel-provance" name="provance" onChange="selectCity();" class="pull-left form-control" style="width:28%; margin-right:1%;">
+
+                                                        <option value="" selected="true">省/直辖市</option>
+
+                                                </select>
+
+                                                <select id="sel-city" name="city" onChange="selectcounty()" class="pull-left form-control" style="width:28%; margin-right:1%;">
+
+                                                        <option value="" selected="true">请选择</option>
+
+                                                </select>
+
+                                                <select id="sel-area" name="area" class="pull-left form-control" style="width:28%;">
+
+                                                        <option value="" selected="true">请选择</option>
+
+                                                </select>
+					</div>
+					<div style="clear:both;"></div>
+				</div>
+				<div>
+					<div class="nav4-content-bt">详细地址：</div>
+					<div class="nav4-right">
+						<input id="dd-addrall" name="detailaddress" type="text" placeholder="请输入详细地址">
+					</div>
+					<div style="clear:both;"></div>
+				</div>
+				<div>
+					<div class="nav4-content-bt">备注：</div>
+					<div class="nav4-right">
+						<textarea placeholder="请输入备注" name="note" id="note"></textarea>
+					</div>
+					<div style="clear:both;"></div>
+				</div>
+				<!--<div class="total" >价格：￥<i id="totalprice">0</i></div>-->
+				<div id="dd-message"></div>
+				<div class="nav2">
+					<input id="submit" type="button" value="提交订单" onclick='buy()'>
+				</div>
+			</div>
+		</div>
+</form>
+		<!--nav4 end-->
+                <div class="nav5">
+			<div class="nav4-bt">历史订单</div>
+			<!--<div class="nav5-content">-->
+			<div class="nav5-content" style="height:150px;">
+				<div class="list_lh" id="FontScroll">
+					<ul>
+						<li>
+							<div class="ldiv">最新购买</div>
+							<span class="rdiv">王**（152****7865）在13小时前购买了  1个红古铜色 无线指纹密码锁</span>
+						</li>
+						<li>
+							<div class="ldiv">最新购买</div>
+							<span class="rdiv">赵**（152****3352）在11小时前购买了  2个红古铜色 无线指纹密码锁</span>
+						</li>
+						<li>
+							<div class="ldiv">最新购买</div>
+							<span class="rdiv">李**（158****4765）在9小时前购买了  1个红古铜色 无线指纹密码锁</span>
+						</li>
+						<li>
+							<div class="ldiv">最新购买</div>
+							<span class="rdiv">孙**（159****6432）在20小时前购买了  1个红古铜色 无线指纹密码锁</span>
+						</li>
+						<li>
+							<div class="ldiv">最新购买</div>
+							<span class="rdiv">王**（158****3567）在12小时前购买了  1个红古铜色 无线指纹密码锁</span>
+						</li>
+						<li>
+							<div class="ldiv">最新购买</div>
+							<span class="rdiv">钱**（153****6875）在7小时前购买了  1个红古铜色 无线指纹密码锁</span>
+						</li>
+						<li>
+							<div class="ldiv">最新购买</div>
+							<span class="rdiv">雷**（156****7876）在6小时前购买了  1个红古铜色 无线指纹密码锁</span>
+						</li>
+						<li>
+							<div class="ldiv">最新购买</div>
+							<span class="rdiv">姚**（153****2332）在9小时前购买了  1个红古铜色 无线指纹密码锁</span>
+						</li>
+						<li>
+							<div class="ldiv">最新购买</div>
+							<span class="rdiv">幸**（152****2321）在4小时前购买了  1个红古铜色 无线指纹密码锁</span>
+						</li>
+						<li>
+							<div class="ldiv">最新购买</div>
+							<span class="rdiv">嘉**（158****1232）在9小时前购买了  1个红古铜色 无线指纹密码锁</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+                <!-- end nav5-->
+   </div>
+
+<!--            <div class="active">
+                <p class="tip"></p>
+            </div>-->
+
+            <div class="card card-list" style="background-color:none;margin:0px;">
+                <!--<div style="clear:both;"></div>-->
+<!--                <script>
+
+                    $(function () {
+                        //contact float
+
+
+                        $("#collect-link").on("click", function () {
+                            $("#collect-tip").show();
+                        })
+                        $("#a-know").on("click", function () {
+                            $("#collect-tip").hide();
+                        })
+
+                    })
+                </script>-->
+
+<!--                <script type="text/javascript" src="__RESOURCE__/recouse/js/iscroll.js"></script>
+                <script type="text/javascript">
+                    var myScroll;
+                    $(document).ready(function () {
+                        var w = $('.item-list ul li').length * 100 + 'px';
+                        $('.item-list').width(w);
+                        myScroll = new iScroll('item-container', {
+                            snap: true,
+                            hScrollbar: false,
+                            vScrollbar: false,
+                            momentum: false
+                        });
+                    });
+                </script>-->
+            </div>
+        </div>
+    </section>
+
+    <script type="text/javascript">
+        var addto_cart_success = "该商品已添加到购物车。";
+        var goods_id = 6;
+        var goodsattr_style = 1;
+        var goodsId = 6;
+        var now_time = 1415650474;
+        onload = function () {
+            //changePrice();
+            try {
+                onload_leftTime();
+            }
+            catch (e) {
+            }
+        }
+
+    </script>
+    <div class="viewport">
+        <!--@php  include page('footer');@-->
+    </div>
+    <script src="__RESOURCE__/recouse/js/zepto.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var options =<!--@php  echo json_encode($options)@-->;
+        var specs =<!--@php  echo json_encode($specs)@-->;
+        var hasoption = <!--@php echo $goods['hasoption']=='1'?'true':'false'@-->;
+
+
+        $(".option,.optionimg").click(function () {
+            var specid = $(this).attr("specid");
+            var oid = $(this).attr("oid");
+            $(".optionid_" + specid).val(oid);
+
+            $(".options_" + specid + "  span").removeClass("current").attr("sel", "false");
+            $(this).addClass("current").attr("sel", "true");
+            var optionid = "";
+            var stock = 0;
+            var marketprice = 0;
+            var productprice = 0;
+            var ret = option_selected();
+
+            if (ret.no == '') {
+                var len = options.length;
+                for (var i = 0; i < len; i++) {
+                    var o = options[i];
+
+                    var ids = ret.all.join("_");
+
+                    if (o.specs == ids) {
+                        optionid = o.id;
+                        stock = o.stock;
+                        marketprice = o.marketprice;
+                        productprice = o.productprice;
+                        break;
+                    }
+
+                }
+                $("#optionid").val(optionid);
+
+                <!--@php  if($stock!=-1) { @-->
+                $("#goodstotail").html(stock);
+                <!--@php  } @-->
+                $("#marketprice").html(marketprice);
+
+
+                $("#productprice").html(productprice);
+                if (productprice <= 0) {
+                    $("#productpricecontainer").hide();
+                }
+                else {
+                    $("#productpricecontainer").show();
+                }
+            }
+        });
+
+
+        Zepto(function ($) {
+            var $nav = $('.global-nav'), $btnLogo = $('.global-nav__operate-wrap');
+            //点击箭头，显示隐藏导航
+            $btnLogo.on('click', function () {
+                if ($btnLogo.parent().hasClass('global-nav--current')) {
+                    navHide();
+                } else {
+                    navShow();
+                }
+            });
+            var navShow = function () {
+                $nav.addClass('global-nav--current');
+            }
+            var navHide = function () {
+                $nav.removeClass('global-nav--current');
+            }
+
+            $(window).on("scroll", function () {
+                if ($nav.hasClass('global-nav--current')) {
+                    navHide();
+                }
+            });
+        })
+
+        function get_search_box() {
+            try {
+                document.getElementById('get_search_box').click();
+            } catch (err) {
+                document.getElementById('keywordfoot').focus();
+            }
+        }
+    </script>
+    <script language='javascript'>
+        function tip(msg, autoClose) {
+            var div = $("#poptip");
+            var content = $("#poptip_content");
+            if (div.length <= 0) {
+                div = $("<div id='poptip'></div>").appendTo(document.body);
+                content = $("<div id='poptip_content'>" + msg + "</div>").appendTo(document.body);
+            }
+            else {
+                content.html(msg);
+                content.show();
+                div.show();
+            }
+            if (autoClose) {
+                setTimeout(function () {
+                    content.fadeOut(500);
+                    div.fadeOut(500);
+
+                }, 1000);
+            }
+        }
+        function tip_close() {
+            $("#poptip").fadeOut(500);
+            $("#poptip_content").fadeOut(500);
+        }
+    </script>
+
+<script type="text/javascript">
+//立即购买
+var hasoption = <!--@php echo $goods['hasoption']=='1'?'true':'false'@-->;
+function buy(){
+    var ret = option_selected();
+        if(ret.no!=''){
+           tip("请选择" + ret.no + "!",true);
+            return;
+        }
+         var total = $("#total").val();
+           <!--@php  if($stock!=-1) { @-->
+          if(total>parseInt($("#goodstotail").html()))
+        {
+        	tip("最多只能购买" + parseInt($("#goodstotail").html()) + "件!",true);
+            return;
+        	
+        }
+         <!--@php  } @-->
+     
+    if($('#dd-name').val() == ''){
+        tip("姓名不能为空",true);
+        return;
+    } 
+    if($('#dd-tel').val() == ''){
+        tip("联系方式不能为空",true);
+        return;
+    } 
+    if($('#sel-provance').val() == ''){
+        tip("请选择地址",true);
+        return;
+    } 
+    if($('#sel-city').val() == ''){
+        tip("请选择地址",true);
+        return;
+    } 
+    if($('#sel-area').val() == ''){
+        tip("请选择地址",true);
+        return;
+    } 
+    if($('#dd-addrall').val() == ''){
+        tip("请填写详细地址",true);
+        return;
+    } 
+    
+     var total = $("#total").val();
+     var parm_str = "&optionid=" + $("#optionid").val() + "&total=" + total+"&serviceprice=1";
+     parm_str += "&shipping="+$('#shipping').val();
+     parm_str += "&serviceprice="+$('#serviceprice').val();
+     parm_str += "&realname="+$('#dd-name').val();
+     parm_str += "&tel="+$('#dd-tel').val();
+     parm_str += "&provance="+$('#sel-provance').val();
+     parm_str += "&city="+$('#sel-city').val();
+     parm_str += "&area="+$('#sel-area').val();
+     parm_str += "&address="+$('#dd-addrall').val();
+     parm_str += "&remark="+$('#note').val();
+     location.href = '<!--@php  echo mobile_url('confirmpp',array('id'=>$goods['id']),true);@-->'+parm_str;
+}
+//添加到购物车
+function addtocart(){
+        var ret = option_selected();
+        if(ret.no!=''){
+           tip("请选择" + ret.no + "!",true);
+            return;
+        }
+        
+         var total = $("#total").val();
+          <!--@php  if($stock!=-1) { @-->
+        if(total>parseInt($("#goodstotail").html()))
+        {
+        	tip("最多只能购买" + parseInt($("#goodstotail").html()) + "件!",true);
+            return;
+        	
+        }  	<!--@php  } @-->
+        
+        tip("正在处理数据...");
+        var url = '<!--@php  echo mobile_url('mycart',array('op'=>'add','id'=>$goods['id']),true);@-->' +"&optionid=" + $("#optionid").val() + "&total=" + total;
+        $.getJSON(url, function(s){
+        if(s.result==0){
+            tip("只能购买 " + s.maxbuy + " 件!");
+        }else{
+            tip_close();
+				  	tip("已加入购物车!");
+			//alert("已加入购物车!");
+           $('#globalId').css({'width':'22px', 'height':'16px', 'line-height':'16px'}).html(s.total).animate({'width':'15px', 'height':'16px', 'line-height':'20px'}, 'slow');
+           $('#carId').css({'width':'22px', 'height':'16px', 'line-height':'16px'}).html(s.total).animate({'width':'15px', 'height':'16px', 'line-height':'20px'}, 'slow');
+       }
+        });
+}
+
+
+
+function option_selected(){
+   
+     var ret= {
+         no: "",
+         all: []
+     };
+    if(!hasoption){
+        return ret;
+    }
+            $(".optionid").each(function(){
+                ret.all.push($(this).val());
+                if($(this).val()==''){
+                    ret.no = $(this).attr("title");
+                    return false;
+                }
+     })
+     return ret;
+}
+</script>
+<script type="text/javascript" src="__RESOURCE__/recouse/js/cascade.js?x=14"></script>
+
+<script>
+cascdeInit('__RESOURCE__/recouse/js','','','');
+//底部文字滚动
+(function($){
+    $.fn.FontScroll = function(options){
+        var d = {time: 3000,s: 'fontColor',num: 1}
+        var o = $.extend(d,options);
+        
+
+        this.children('ul').addClass('line');
+        var _con = $('.line').eq(0);
+        var _conH = _con.height(); //滚动总高度
+        var _conChildH = _con.children().eq(0).height();//一次滚动高度
+        var _temp = _conChildH;  //临时变量
+        var _time = d.time;  //滚动间隔
+        var _s = d.s;  //滚动间隔
+
+
+        _con.clone().insertAfter(_con);//初始化克隆
+
+        //样式控制
+        var num = d.num;
+        var _p = this.find('li');
+        var allNum = _p.length;
+
+        _p.eq(num).addClass(_s);
+
+
+        var timeID = setInterval(Up,_time);
+		this.hover(function(){clearInterval(timeID)},function(){timeID = setInterval(Up,_time);});
+
+        function Up(){
+            _con.animate({marginTop: '-'+_conChildH});
+            //样式控制
+            _p.removeClass(_s);
+            num += 1;
+            _p.eq(num).addClass(_s);
+            
+            if(_conH == _conChildH){
+                _con.animate({marginTop: '-'+_conChildH},"normal",over);
+            } else {
+                _conChildH += _temp;
+            }
+        }
+        function over(){
+            _con.attr("style",'margin-top:0');
+            _conChildH = _temp;
+            num = 1;
+            _p.removeClass(_s);
+            _p.eq(num).addClass(_s);
+        }
+    }
+})(jQuery);
+
+$('#FontScroll').FontScroll({time: 1000,num: 1});
+
+</script>
+</div>
+</div>
+</body>
+</html>
